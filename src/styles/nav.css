@@ -151,6 +151,9 @@
   padding: 8px;
   margin-left: 0;
   justify-self: end;
+  position: relative;
+  z-index: 130;
+  touch-action: manipulation;
 }
 
 .nav-hamburger span {
@@ -186,11 +189,15 @@
   transform: translateY(-8px);
   opacity: 0;
   transition: transform var(--transition-mid), opacity var(--transition-mid);
+  pointer-events: none;
+  z-index: 120;
 }
 
 .nav-mobile-menu.open {
+  display: block;
   transform: translateY(0);
   opacity: 1;
+  pointer-events: auto;
 }
 
 .nav-mobile-menu ul {

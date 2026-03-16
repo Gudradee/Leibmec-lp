@@ -30,19 +30,20 @@ export function initNav() {
 
   // Hamburger toggle
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
+    const toggleMenu = () => {
       const isOpen = mobileMenu.classList.toggle('open')
       hamburger.classList.toggle('open', isOpen)
-      hamburger.setAttribute('aria-expanded', isOpen)
-    })
+      hamburger.setAttribute('aria-expanded', String(isOpen))
+    }
+    hamburger.onclick = toggleMenu
 
     // Close on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+      link.onclick = () => {
         mobileMenu.classList.remove('open')
         hamburger.classList.remove('open')
         hamburger.setAttribute('aria-expanded', 'false')
-      })
+      }
     })
   }
 

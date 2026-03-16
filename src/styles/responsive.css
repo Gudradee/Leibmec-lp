@@ -75,10 +75,6 @@
     display: flex;
   }
 
-  .nav-mobile-menu {
-    display: block;
-  }
-
   .marquee-track.is-ready {
     animation-duration: 18s;
   }

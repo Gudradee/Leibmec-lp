@@ -142,6 +142,10 @@
   transform: rotateY(180deg);
 }
 
+.pilar-flip.is-active .pilar-flip-inner {
+  transform: rotateY(180deg);
+}
+
 .pilar-flip-front,
 .pilar-flip-back {
   position: absolute;

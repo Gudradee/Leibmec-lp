@@ -8,6 +8,7 @@ import { initNav } from '../components/NavBehavior.js'
 import { initFAQ } from '../components/FAQ.js'
 import { initTiles } from './tilesAnimation.js'
 import { initSpotlightCards } from './spotlightCards.js'
+import { initPilaresMobileFlip } from './pilaresMobileFlip.js'
 
 export function initAllAnimations() {
   initScrollReveal()
@@ -20,4 +21,5 @@ export function initAllAnimations() {
   initFAQ()
   initTiles()
   initSpotlightCards()
+  initPilaresMobileFlip()
 }

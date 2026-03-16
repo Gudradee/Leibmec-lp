@@ -74,7 +74,6 @@ export function renderPilares() {
             </div>
           `).join('')}
         </div>
-        <p class="pilares-hint">Passe o mouse sobre cada card para saber mais</p>
       </div>
     </section>
   `

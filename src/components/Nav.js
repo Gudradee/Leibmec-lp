@@ -19,7 +19,7 @@ export function renderNav() {
           Inscreva-se <i class="fi fi-rr-arrow-right"></i>
         </a>
 
-        <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+        <button type="button" class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile-menu">
           <span></span><span></span><span></span>
         </button>
       </div>
