@@ -153,6 +153,18 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Disable spotlight effect on mobile to avoid visual glitches */
+  .step-detail {
+    background-image: none;
+    background-attachment: scroll;
+  }
+
+  .step-detail::before,
+  .step-detail::after,
+  .step-detail > [data-glow] {
+    display: none;
+  }
+
   .cta-container {
     flex-direction: column;
   }

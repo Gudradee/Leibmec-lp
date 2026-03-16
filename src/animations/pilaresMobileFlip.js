@@ -3,30 +3,40 @@ export function initPilaresMobileFlip() {
   if (!cards.length) return
 
   const isMobile = window.matchMedia('(max-width: 768px)').matches
-  cards.forEach(card => card.classList.remove('is-active'))
-  if (!isMobile) return
+  cards.forEach(card => {
+    card.classList.remove('is-active')
+    card.onclick = null
+    card.onkeydown = null
 
-  if (window.__pilaresMobileObserver) {
-    window.__pilaresMobileObserver.disconnect()
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter(entry => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-
-      if (!visible) return
-
-      cards.forEach(card => card.classList.remove('is-active'))
-      visible.target.classList.add('is-active')
-    },
-    {
-      threshold: [0.35, 0.5, 0.65, 0.8],
-      rootMargin: '-12% 0px -12% 0px',
+    if (!isMobile) {
+      card.removeAttribute('role')
+      card.removeAttribute('tabindex')
+      card.removeAttribute('aria-expanded')
+      return
     }
-  )
 
-  cards.forEach(card => observer.observe(card))
-  window.__pilaresMobileObserver = observer
+    card.setAttribute('role', 'button')
+    card.setAttribute('tabindex', '0')
+    card.setAttribute('aria-expanded', 'false')
+
+    const toggleCard = () => {
+      const willOpen = !card.classList.contains('is-active')
+      cards.forEach(item => {
+        item.classList.remove('is-active')
+        item.setAttribute('aria-expanded', 'false')
+      })
+      if (willOpen) {
+        card.classList.add('is-active')
+        card.setAttribute('aria-expanded', 'true')
+      }
+    }
+
+    card.onclick = toggleCard
+    card.onkeydown = (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault()
+        toggleCard()
+      }
+    }
+  })
 }
