@@ -1,0 +1,121 @@
+/* ---- Shimmer button (btn-primary only) ---- */
+@keyframes shimmer-btn {
+  0%   { background-position:  100% 0%; }
+  100% { background-position: -100% 0%; }
+}
+
+/* ---- Scroll Reveal (.r) ---- */
+.r {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.r.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Hero word split ---- */
+.hw {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hw.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Manifesto line ---- */
+#manifesto-line {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#manifesto-line.grow {
+  transform: scaleY(1);
+}
+
+/* ---- Marquee ---- */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+
+/* ---- Flip Card ---- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Pulse gold ---- */
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(254, 197, 57, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(254, 197, 57, 0); }
+}
+
+/* ---- CTA ring ---- */
+@keyframes ring-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ================================================================
+   HERO GRADIENT BLOBS
+   ================================================================ */
+
+@keyframes hero-move-v {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(40%); }
+}
+
+@keyframes hero-move-circle {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(20%, 15%) rotate(90deg); }
+  50%  { transform: translate(10%, 30%) rotate(180deg); }
+  75%  { transform: translate(-10%, 15%) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+@keyframes hero-move-h {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(30%); }
+}
+
+/* Gold shimmer on hero em text */
+@keyframes shimmer-gold {
+  from { background-position: 200% center; }
+  to   { background-position: -200% center; }
+}
+
+/* Pulse dot in eyebrow badge */
+@keyframes pulse-gold-dot {
+  0%, 100% {
+    box-shadow: 0 0 0 0   rgba(254, 197, 57, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(254, 197, 57, 0);
+  }
+}
+
+@keyframes retro-grid-scroll {
+  0%   { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes hw-draw {
+  to { stroke-dashoffset: 0; }
+}

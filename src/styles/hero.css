@@ -1,0 +1,293 @@
+/* ================================================================
+   HERO
+   ================================================================ */
+
+.hero {
+  min-height: 100vh;
+  background-color: var(--primary-blue);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.hero-gradient-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--primary-blue);
+}
+
+/* ---- Ghost watermark ---- */
+.hero-bg-text {
+  position: absolute;
+  top: 58%;
+  right: 6%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(190px, 30vw, 460px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.02);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  z-index: 0;
+}
+
+/* ---- Top + bottom vignette ---- */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 14, 54, 0.55) 0%,
+    transparent 25%,
+    transparent 75%,
+    rgba(15, 14, 54, 0.35) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ================================================================
+   HERO LAYOUT
+   ================================================================ */
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---- Eyebrow — pill badge style (inline-flex, border, bg) ---- */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: fit-content;
+}
+
+.hero-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold-highlight);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(254, 197, 57, 0.5);
+  animation: pulse-gold-dot 2s ease-in-out infinite;
+}
+
+.hero-eyebrow-text {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* ---- Title ---- */
+.hero-title {
+  color: var(--white);
+  margin: 0;
+}
+
+/* Em portion — gold gradient, overrides parent -webkit-text-fill-color */
+.hero-title-em {
+  font-style: italic;
+  display: inline;
+}
+
+/* ---- Animated underline on "ganham forma." ---- */
+.hu-wrap {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 16px;
+  background: linear-gradient(to right, var(--gold-highlight), var(--gold-muted), var(--gold-highlight));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: shimmer-gold 4s linear infinite;
+}
+
+.hu-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  color: var(--gold-highlight);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.hu-path {
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+  animation: hu-draw 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+  transition: d 0.8s ease;
+}
+
+.hu-wrap:hover .hu-path {
+  d: path("M 0,10 Q 75,20 150,10 Q 225,0 300,10");
+}
+
+@keyframes hu-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ---- Subtitle ---- */
+.hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.75;
+  max-width: 480px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Buttons ---- */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ================================================================
+   FLIP CARDS
+   ================================================================ */
+
+.hero-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.flip-card {
+  width: 100%;
+  height: 152px;
+  perspective: 1200px;
+  cursor: pointer;
+  outline: none;
+}
+
+.flip-card:focus-visible .flip-card-inner {
+  box-shadow: 0 0 0 3px var(--gold-highlight);
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-md);
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.flip-card-front {
+  background: rgba(255, 255, 255, 0.001);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  gap: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14),
+              0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.flip-card:hover .flip-card-front {
+  border-color: rgba(254, 197, 57, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14),
+              0 3px 18px rgba(254, 197, 57, 0.14);
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, var(--gold-highlight) 0%, var(--gold-muted) 100%);
+  transform: rotateY(180deg);
+  color: var(--primary-blue);
+  text-align: center;
+  gap: 8px;
+}
+
+.flip-card-back p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.flip-number {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  background: linear-gradient(to bottom, var(--gold-highlight), var(--gold-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.flip-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gray-light);
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.flip-sub {
+  font-size: 0.70rem;
+  color: var(--gray-muted);
+  text-align: center;
+  margin-top: 2px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.flip-icon {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 4px;
+}
+
+.flip-back-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--primary-blue);
+  display: block;
+}
