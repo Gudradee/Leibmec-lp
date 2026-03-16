@@ -79,6 +79,10 @@
     display: block;
   }
 
+  .marquee-track.is-ready {
+    animation-duration: 18s;
+  }
+
   .hero {
     min-height: auto;
     padding-top: 70px;
@@ -92,20 +96,31 @@
   }
 
   .hero-cards {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 
   .flip-card {
-    height: 110px;
+    height: 150px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 14px 12px;
   }
 
   .flip-number {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .flip-label {
-    font-size: 0.72rem;
+    font-size: 0.76rem;
+  }
+
+  .flip-sub {
+    font-size: 0.75rem;
+    line-height: 1.35;
+    margin-top: 4px;
   }
 
   .manifesto-container {
@@ -186,7 +201,7 @@
   }
 
   .flip-card {
-    height: 100px;
+    height: 142px;
   }
 
   .hero-buttons {
@@ -221,5 +236,9 @@
 
   .beneficios-grid {
     grid-template-columns: 1fr;
+  }
+
+  .marquee-track.is-ready {
+    animation-duration: 14s;
   }
 }
