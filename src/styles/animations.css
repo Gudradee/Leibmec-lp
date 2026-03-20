@@ -1,7 +1,7 @@
-/* ---- Shimmer button (btn-primary only) ---- */
+/* ---- Shimmer button (btn-primary::after slides off-screen — seamless loop) ---- */
 @keyframes shimmer-btn {
-  0%   { background-position:  100% 0%; }
-  100% { background-position: -100% 0%; }
+  0%   { transform: translateX(-150%); }
+  100% { transform: translateX(250%); }
 }
 
 /* ---- Scroll Reveal (.r) ---- */

@@ -85,7 +85,7 @@ export default function Hero() {
         ))}
       </div>
       <div aria-hidden="true" className="absolute select-none pointer-events-none"
-        style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontStyle: 'italic', fontSize: 'clamp(120px, 20vw, 260px)', fontWeight: 700, color: 'transparent', WebkitTextStroke: '1px rgba(254,197,57,0.06)', right: '-2%', top: '50%', transform: 'translateY(-50%)', lineHeight: 1, userSelect: 'none' }}>
+        style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontStyle: 'italic', fontSize: 'clamp(180px, 30vw, 420px)', fontWeight: 700, color: 'transparent', WebkitTextStroke: '1px rgba(254,197,57,0.14)', right: '-2%', bottom: '-4%', lineHeight: 1, userSelect: 'none' }}>
         LEI
       </div>
       <div aria-hidden="true" className="absolute inset-x-0 bottom-0 pointer-events-none h-32"

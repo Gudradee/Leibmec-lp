@@ -1,41 +1,14 @@
-export function renderProcessoSteps() {
-  const steps = [
-    {
-      n: '01',
-      icon: 'fi-rr-pencil',
-      title: 'Inscrição',
-      desc: 'Preencha o formulário online com seus dados e motivações. Queremos entender quem você é e o que quer construir.',
-      badge: 'Formulário online'
-    },
-    {
-      n: '02',
-      icon: 'fi-rr-document',
-      title: '1ª Fase',
-      desc: 'Prova escrita para avaliar raciocínio, conhecimento e capacidade analítica. Objetiva, sem decoreba.',
-      badge: 'Prova escrita'
-    },
-    {
-      n: '03',
-      icon: 'fi-rr-user-add',
-      title: 'Dinâmica em Grupo',
-      desc: 'Atividade presencial em equipe. Avaliamos como você pensa, colabora e se posiciona sob pressão real.',
-      badge: 'Presencial'
-    },
-    {
-      n: '04',
-      icon: 'fi-rr-comment-user',
-      title: 'Entrevista Pessoal',
-      desc: 'Conversa individual com a gestão para alinhar expectativas, valores e confirmar o encaixe com a liga.',
-      badge: 'Etapa final'
-    }
-  ]
+import { t } from '../i18n/translations.js'
+
+export function renderProcessoSteps(lang = 'pt') {
+  const steps = t(lang, 'processo_steps')
 
   return `
     <section class="processo section-gray" id="processo">
       <div class="container">
         <div class="section-header r">
-          <div class="chip">Processo seletivo</div>
-          <h2 class="section-title">Como entrar na liga</h2>
+          <div class="chip">${t(lang, 'processo_chip')}</div>
+          <h2 class="section-title">${t(lang, 'processo_title')}</h2>
         </div>
 
         <div class="steps-track r">
@@ -65,8 +38,8 @@ export function renderProcessoSteps() {
         </div>
 
         <div class="processo-btn-wrap r">
-          <a href="/processo-seletivo" class="btn btn-primary btn-large" aria-label="Entenda o processo seletivo completo">
-            Entenda mais <i class="fi fi-rr-arrow-right"></i>
+          <a href="/processo-seletivo" onclick="event.preventDefault(); window.navigateTo('/processo-seletivo')" class="btn btn-primary btn-large" aria-label="${t(lang, 'processo_btn')}">
+            ${t(lang, 'processo_btn')} <i class="fi fi-rr-arrow-right"></i>
           </a>
         </div>
       </div>

@@ -10,7 +10,7 @@
   border-radius: var(--radius-sm);
   border: 2px solid transparent;
   cursor: pointer;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   white-space: nowrap;
   text-decoration: none;
 }
@@ -23,26 +23,49 @@
   transform: translateY(0);
 }
 
+/* ── Primary (yellow) ── */
 .btn-primary {
   background: #fec539;
-  background-size: 250% 100%;
-  background-position: 100% 0%;
   color: var(--primary-blue);
   border-color: #fec539;
+  position: relative;
+  overflow: hidden;
+  /* exclude background from transition — prevents the hollow flash on mouseout */
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+/* shimmer layer — slides from off-screen left to off-screen right */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.30) 50%,
+    transparent 70%
+  );
+  transform: translateX(-150%);
+  pointer-events: none;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(110deg, #fec539 0%, #fec539 38%, #ffd97a 50%, #fec539 62%, #fec539 100%);
-  background-size: 250% 100%;
-  border-color: var(--gold-muted);
+  border-color: #f5b800;
   box-shadow: 0 8px 24px rgba(254, 197, 57, 0.4);
-  animation: shimmer-btn 3.2s linear infinite;
 }
 
+/* start shimmer only on hover — the jump back happens off-screen so loop is invisible */
+.btn-primary:hover::after {
+  animation: shimmer-btn 2.2s linear infinite;
+}
+
+/* ── Outline ── */
 .btn-outline {
   background: transparent;
   color: var(--white);
   border-color: rgba(255,255,255,0.5);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+              border-color var(--transition-fast), background var(--transition-fast);
 }
 
 .btn-outline:hover {
@@ -50,6 +73,7 @@
   border-color: var(--white);
 }
 
+/* ── Sizes ── */
 .btn-large {
   font-size: 1rem;
   padding: 14px 36px;

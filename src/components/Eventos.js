@@ -1,3 +1,8 @@
+import { t } from '../i18n/translations.js'
+
+const MAIN_ICONS = ['fi-rr-star', 'fi-rr-book-open-cover', 'fi-rr-building']
+const ACTIVITY_ICONS = ['fi-rr-microphone', 'fi-rr-people-roof', 'fi-rr-coins', 'fi-rr-diagram-project']
+
 function genGFCPattern() {
   return Array.from({ length: 5 }, () => [
     Math.floor(Math.random() * 4) + 7,
@@ -23,36 +28,10 @@ function renderGFCPattern(squares) {
   `
 }
 
-export function renderEventos() {
-  const mainEvents = [
-    {
-      tag: 'Evento Anual',
-      icon: 'fi-rr-star',
-      name: 'Z-Summit',
-      desc: 'Um dia de imersão com palestras, painéis e networking que vai além da universidade.'
-    },
-    {
-      tag: 'Aprendizado',
-      icon: 'fi-rr-book-open-cover',
-      name: 'Learning Week',
-      desc: 'Finanças, marketing e venture capital em uma semana de aprendizado intensivo.'
-    },
-    {
-      tag: 'Visita',
-      icon: 'fi-rr-building',
-      name: 'XP Inc.',
-      desc: 'Visita à maior fintech do Brasil — vendo por dentro como se constrói algo grande.'
-    }
-  ]
-
-  const activities = [
-    { icon: 'fi-rr-microphone',      tag: 'Atividade', name: 'Palestras & Talks',   desc: 'Empreendedores, investidores e executivos compartilham o que os livros não ensinam — de fusões a startups bilionárias.' },
-    { icon: 'fi-rr-people-roof',     tag: 'Dinâmica',  name: 'Dinâmicas em Grupo',  desc: 'Atividades hands-on que desenvolvem pensamento estratégico, liderança e capacidade de execução sob pressão real.' },
-    { icon: 'fi-rr-coins',           tag: 'Projeto',   name: 'Semana do Financeiro', desc: 'Finanças pessoais, estrutura de negócios e primeiros investimentos — para quem quer empreender com responsabilidade financeira.' },
-    { icon: 'fi-rr-diagram-project', tag: 'Projeto',   name: 'Projetos Internos',   desc: 'Iniciativas conduzidas pelos próprios membros — da concepção à entrega. O laboratório prático da liga.' }
-  ]
-
-  const tilesHtml = Array.from({ length: 50 * 22 }, () => '<div class="tile"></div>').join('')
+export function renderEventos(lang = 'pt') {
+  const mainEvents  = t(lang, 'eventos_main')
+  const activities  = t(lang, 'eventos_activities')
+  const tilesHtml   = Array.from({ length: 50 * 22 }, () => '<div class="tile"></div>').join('')
 
   return `
     <section class="eventos section-light section-tiles" id="eventos">
@@ -60,11 +39,11 @@ export function renderEventos() {
       <div class="container">
         <div class="section-header-row r">
           <div>
-            <div class="chip">Experiências</div>
-            <h2 class="section-title">Eventos que marcam.</h2>
+            <div class="chip">${t(lang, 'eventos_chip')}</div>
+            <h2 class="section-title">${t(lang, 'eventos_title')}</h2>
           </div>
-          <a href="https://www.instagram.com/leibmec/" target="_blank" rel="noopener" class="btn btn-primary eventos-ig-link" aria-label="Ver eventos no Instagram da LEIbmec">
-            <i class="fi fi-brands-instagram"></i> Ver no Instagram
+          <a href="https://www.instagram.com/leibmec/" target="_blank" rel="noopener" class="btn btn-primary eventos-ig-link" aria-label="${t(lang, 'eventos_igLink')}">
+            <i class="fi fi-brands-instagram"></i> ${t(lang, 'eventos_igLink')}
           </a>
         </div>
 
@@ -73,7 +52,7 @@ export function renderEventos() {
             ${mainEvents.map((e, i) => `
               <div class="dc-evento dc-evento--${['back','mid','front'][i]}">
                 <div class="dc-evento-top">
-                  <span class="dc-evento-icon"><i class="fi ${e.icon}"></i></span>
+                  <span class="dc-evento-icon"><i class="fi ${MAIN_ICONS[i]}"></i></span>
                   <span class="dc-evento-tag">${e.tag}</span>
                 </div>
                 <h3 class="dc-evento-name">${e.name}</h3>
@@ -84,7 +63,7 @@ export function renderEventos() {
         </div>
 
         <div class="gfc-grid r">
-          ${activities.map(a => {
+          ${activities.map((a, i) => {
             const squares = genGFCPattern()
             return `
               <div class="gfc-card">
@@ -93,7 +72,7 @@ export function renderEventos() {
                     ${renderGFCPattern(squares)}
                   </div>
                 </div>
-                <i class="fi ${a.icon} gfc-icon"></i>
+                <i class="fi ${ACTIVITY_ICONS[i]} gfc-icon"></i>
                 <span class="gfc-tag">${a.tag}</span>
                 <h4 class="gfc-title">${a.name}</h4>
                 <p class="gfc-desc">${a.desc}</p>

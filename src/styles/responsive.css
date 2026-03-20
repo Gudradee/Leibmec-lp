@@ -58,7 +58,8 @@
   }
 
   .nav-links,
-  .nav-cta {
+  .nav-cta,
+  .nav-actions {
     display: none;
   }
 

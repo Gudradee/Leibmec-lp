@@ -1,13 +1,23 @@
-export function renderFooter() {
+import { t } from '../i18n/translations.js'
+
+export function renderFooter(lang = 'pt') {
+  const col1 = t(lang, 'footer_col1Links')
+  const col2 = t(lang, 'footer_col2Links')
+  const col3 = t(lang, 'footer_col3Links')
+
+  const linkHtml = (links) => links.map(l =>
+    `<li><a href="${l.href}"${l.external ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a></li>`
+  ).join('')
+
   return `
     <footer class="footer" role="contentinfo">
       <div class="container footer-container">
         <div class="footer-brand">
-          <a href="/" class="footer-logo" aria-label="LEIbmec - Início">
+          <a href="/" class="footer-logo" aria-label="LEIbmec — ${t(lang, 'footer_tagline')}">
             <div class="logo-wordmark"><em class="logo-le">LE</em><span class="logo-ibmec">Ibmec</span></div>
-            <span class="logo-tagline">Liga de Empreendedorismo</span>
+            <span class="logo-tagline">${t(lang, 'footer_tagline')}</span>
           </a>
-          <p class="footer-desc">Liga de Empreendedorismo do Ibmec SP. Formando os fundadores de amanhã, hoje.</p>
+          <p class="footer-desc">${t(lang, 'footer_desc')}</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/leibmec/" target="_blank" rel="noopener" aria-label="Instagram da LEIbmec" class="footer-social-link">
               <i class="fi fi-brands-instagram"></i>
@@ -19,33 +29,22 @@ export function renderFooter() {
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-col-title">Liga</h4>
-          <ul class="footer-links" role="list">
-            <li><a href="/#manifesto">Manifesto</a></li>
-            <li><a href="/#pilares">Pilares</a></li>
-            <li><a href="/#eventos">Eventos</a></li>
-            <li><a href="/processo-seletivo">Seleção</a></li>
-          </ul>
+          <h4 class="footer-col-title">${t(lang, 'footer_col1Title')}</h4>
+          <ul class="footer-links" role="list">${linkHtml(col1)}</ul>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-col-title">Participe</h4>
-          <ul class="footer-links" role="list">
-            <li><a href="https://forms.gle/anKhw9pBqYVkjnqG6" target="_blank" rel="noopener">Inscrição</a></li>
-            <li><a href="https://www.instagram.com/leibmec/" target="_blank" rel="noopener">Instagram</a></li>
-          </ul>
+          <h4 class="footer-col-title">${t(lang, 'footer_col2Title')}</h4>
+          <ul class="footer-links" role="list">${linkHtml(col2)}</ul>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-col-title">Parcerias</h4>
-          <ul class="footer-links" role="list">
-            <li><a href="https://forms.gle/anKhw9pBqYVkjnqG6" target="_blank" rel="noopener">Seja parceiro</a></li>
-            <li><a href="https://www.instagram.com/leibmec/" target="_blank" rel="noopener">Fale conosco</a></li>
-          </ul>
+          <h4 class="footer-col-title">${t(lang, 'footer_col3Title')}</h4>
+          <ul class="footer-links" role="list">${linkHtml(col3)}</ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 LEIbmec — Liga de Empreendedorismo Ibmec SP</p>
+        <p>${t(lang, 'footer_copyright')}</p>
         <p class="uicons-credit">Icons by <a href="https://www.flaticon.com/uicons" target="_blank" rel="noopener">Flaticon</a></p>
       </div>
     </footer>
