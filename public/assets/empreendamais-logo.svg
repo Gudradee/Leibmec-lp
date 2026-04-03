@@ -1,0 +1,38 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#0f0e36"/>
+
+  <!-- Stylized E mark (rounded E with middle bar) -->
+  <!-- Outer arc / left vertical bar -->
+  <path
+    d="M155 165
+       C155 165 155 165 155 165
+       L155 335
+       C155 335 155 335 155 335
+       C155 348 165 360 180 360
+       L290 360
+       C303 360 314 349 314 336
+       C314 323 303 312 290 312
+       L203 312
+       C196 312 190 306 190 299
+       L190 270
+       L275 270
+       C288 270 299 259 299 246
+       C299 233 288 222 275 222
+       L190 222
+       L190 201
+       C190 194 196 188 203 188
+       L290 188
+       C303 188 314 177 314 164
+       C314 151 303 140 290 140
+       L180 140
+       C165 140 155 152 155 165 Z"
+    fill="#f5b800"
+  />
+
+  <!-- Plus sign -->
+  <!-- Vertical bar of + -->
+  <rect x="332" y="210" width="36" height="100" rx="18" fill="#f5b800"/>
+  <!-- Horizontal bar of + -->
+  <rect x="300" y="230" width="100" height="36" rx="18" fill="#f5b800"/>
+</svg>

@@ -1,312 +1,121 @@
 export const translations = {
   pt: {
-    // ── Nav ──
-    nav_tagline: 'Liga de Empreendedorismo',
-    nav_manifesto: 'Manifesto',
-    nav_pilares: 'Pilares',
-    nav_eventos: 'Eventos',
-    nav_selecao: 'Seleção',
-    nav_parceria: 'Parceria',
-    nav_inscrevase: 'Inscreva-se',
-    nav_openMenu: 'Abrir menu',
-    nav_closeMenu: 'Fechar menu',
-
-    // ── Hero ──
-    hero_eyebrow: 'Liga de Empreendedorismo · Ibmec SP',
-    hero_titleMain: 'O lugar onde futuros fundadores',
-    hero_titleEm: 'ganham forma.',
-    hero_subtitle: 'A LEIbmec é o ecossistema de empreendedorismo do Ibmec SP. Capacitamos, conectamos e aceleramos estudantes que querem construir negócios reais — não apenas estudar sobre eles.',
-    hero_ctaPrimary: 'Quero fazer parte',
-    hero_ctaSecondary: 'Conheça a liga',
-    hero_card1Aria: '2.5k+ pessoas no ecossistema',
-    hero_card1Label: 'Alcance',
-    hero_card1Sub: 'pessoas no ecossistema',
-    hero_card1BackTitle: 'Comunidade ativa',
-    hero_card1BackDesc: 'Estudantes, ex-membros e parceiros que fazem parte do ecossistema LEIbmec.',
-    hero_card2Aria: '12 eventos realizados em 2024-25',
-    hero_card2Label: 'Eventos',
-    hero_card2Sub: 'realizados em 2024–25',
-    hero_card2BackTitle: 'Do Summit ao dia a dia',
-    hero_card2BackDesc: 'Palestras, dinâmicas, visitas e o Z-Summit — experiências que marcam quem passa pela liga.',
-    hero_card3Aria: '6 setores de atuação interna',
-    hero_card3Label: 'Setores',
-    hero_card3Sub: 'áreas de atuação interna',
-    hero_card3BackTitle: 'Estrutura real',
-    hero_card3BackDesc: 'Gestão, Marketing, Projetos, RI, Inteligência de Mercado e Tecnologia & Inovação.',
-
-    // ── Marquee ──
-    marquee_items: [
-      'Empreendedorismo', 'Z-Summit 2025', 'Learning Week', 'Visita XP Inc.',
-      'Ibmec São Paulo', 'Networking', 'Nova Gestão 2025.2', 'Palestras', 'Dinâmicas',
-    ],
-
-    // ── Manifesto ──
-    manifesto_chip: 'Manifesto',
-    manifesto_title: 'Porque existimos',
-    manifesto_p1: 'O Brasil precisa de mais fundadores — não de mais candidatos à vaga dos outros. A universidade forma profissionais qualificados, mas raramente forma quem decide criar o próximo negócio.',
-    manifesto_p2: 'A LEIbmec existe para preencher essa lacuna.',
-    manifesto_p3: 'Criamos um espaço onde estudantes aprendem na prática: apresentam ideias, se expõem ao erro, constroem junto com outros e se conectam com quem já construiu algo real.',
-    manifesto_quote: '"Não ensinamos teoria. Provocamos ação."',
-    manifesto_p4: 'Cada palestra, cada dinâmica, cada evento é uma aposta no potencial de quem ainda está dentro da faculdade — mas já pensa além dela.',
-    manifesto_p5: 'Esses são os fundadores de amanhã. E eles estão aqui.',
-
-    // ── Pilares ──
-    pilares_chip: 'O que fazemos',
-    pilares_title: 'Nossos pilares de atuação',
-    pilares_items: [
-      { num: '01 / 06', name: 'Gestão Interna',         desc: 'O núcleo que mantém a liga funcionando. Responsável por processos, pessoas, cultura organizacional e a evolução contínua da LEIbmec.' },
-      { num: '02 / 06', name: 'Marketing',               desc: 'Comunicação, identidade visual e presença digital da liga. Transforma o que acontece dentro da LEI em conteúdo que inspira fora dela.' },
-      { num: '03 / 06', name: 'Inteligência de Mercado', desc: 'Análise de tendências, mapeamento de ecossistemas e geração de insights que embasam decisões estratégicas da liga e dos membros.' },
-      { num: '04 / 06', name: 'Projetos',                desc: 'Concepção e execução de iniciativas reais — de eventos a programas de capacitação. O lugar onde ideias viram entregas concretas.' },
-      { num: '05 / 06', name: 'Relações Institucionais', desc: 'Pontes com empresas, investidores, outras ligas e a própria instituição. Quem amplia o alcance e abre portas para o ecossistema.' },
-      { num: '06 / 06', name: 'Tecnologia & Inovação',   desc: 'Explora o que há de mais novo em tech, IA e modelos de negócio. Conteúdo, projetos e visão de futuro para quem quer construir o próximo grande produto.' },
-    ],
-
-    // ── Números ──
-    numeros_items: [
-      { label: 'pessoas alcançadas no ecossistema' },
-      { label: 'eventos realizados em 2024–25' },
-      { label: 'conteúdos produzidos sobre empreendedorismo' },
-      { label: 'foco em formar os fundadores de amanhã' },
-    ],
-
-    // ── Eventos ──
-    eventos_chip: 'Experiências',
-    eventos_title: 'Eventos que marcam.',
-    eventos_igLink: 'Ver no Instagram',
-    eventos_main: [
-      { tag: 'Evento Anual', name: 'Z-Summit',    desc: 'Um dia de imersão com palestras, painéis e networking que vai além da universidade.' },
-      { tag: 'Aprendizado',  name: 'Learning Week', desc: 'Finanças, marketing e venture capital em uma semana de aprendizado intensivo.' },
-      { tag: 'Visita',       name: 'XP Inc.',      desc: 'Visita à maior fintech do Brasil — vendo por dentro como se constrói algo grande.' },
-    ],
-    eventos_activities: [
-      { tag: 'Atividade', name: 'Palestras & Talks',    desc: 'Empreendedores, investidores e executivos compartilham o que os livros não ensinam — de fusões a startups bilionárias.' },
-      { tag: 'Dinâmica',  name: 'Dinâmicas em Grupo',   desc: 'Atividades hands-on que desenvolvem pensamento estratégico, liderança e capacidade de execução sob pressão real.' },
-      { tag: 'Projeto',   name: 'Semana do Financeiro', desc: 'Finanças pessoais, estrutura de negócios e primeiros investimentos — para quem quer empreender com responsabilidade financeira.' },
-      { tag: 'Projeto',   name: 'Projetos Internos',    desc: 'Iniciativas conduzidas pelos próprios membros — da concepção à entrega. O laboratório prático da liga.' },
-    ],
-
-    // ── Processo Steps (home) ──
-    processo_chip: 'Processo seletivo',
-    processo_title: 'Como entrar na liga',
-    processo_btn: 'Entenda mais',
-    processo_steps: [
-      { n: '01', icon: 'fi-rr-pencil',       title: 'Inscrição',          desc: 'Preencha o formulário online com seus dados e motivações. Queremos entender quem você é e o que quer construir.', badge: 'Formulário online' },
-      { n: '02', icon: 'fi-rr-document',     title: '1ª Fase',            desc: 'Prova escrita para avaliar raciocínio, conhecimento e capacidade analítica. Objetiva, sem decoreba.', badge: 'Prova escrita' },
-      { n: '03', icon: 'fi-rr-user-add',     title: 'Dinâmica em Grupo',  desc: 'Atividade presencial em equipe. Avaliamos como você pensa, colabora e se posiciona sob pressão real.', badge: 'Presencial' },
-      { n: '04', icon: 'fi-rr-comment-user', title: 'Entrevista Pessoal', desc: 'Conversa individual com a gestão para alinhar expectativas, valores e confirmar o encaixe com a liga.', badge: 'Etapa final' },
-    ],
-
-    // ── CTA ──
-    cta_chip: 'Parcerias estratégicas',
-    cta_title: 'Vamos construir algo maior juntos.',
-    cta_subtitle: 'A LEIbmec está pronta para dar o próximo passo. Buscamos parceiros que entendam que investir nos fundadores de amanhã é o retorno mais estratégico que existe.',
-    cta_btn1: 'Quero ser parceiro',
-    cta_btn2: 'Conhecer a comunidade',
-
-    // ── Footer ──
-    footer_tagline: 'Liga de Empreendedorismo',
-    footer_desc: 'Liga de Empreendedorismo do Ibmec SP. Formando os fundadores de amanhã, hoje.',
-    footer_col1Title: 'Liga',
-    footer_col1Links: [
-      { label: 'Manifesto', href: '/#manifesto' },
-      { label: 'Pilares',   href: '/#pilares' },
-      { label: 'Eventos',   href: '/#eventos' },
-      { label: 'Seleção',   href: '/processo-seletivo' },
-    ],
-    footer_col2Title: 'Participe',
-    footer_col2Links: [
-      { label: 'Inscrição',  href: 'https://forms.gle/anKhw9pBqYVkjnqG6', external: true },
-      { label: 'Instagram',  href: 'https://www.instagram.com/leibmec/', external: true },
-    ],
-    footer_col3Title: 'Parcerias',
-    footer_col3Links: [
-      { label: 'Seja parceiro', href: 'https://forms.gle/anKhw9pBqYVkjnqG6', external: true },
-      { label: 'Fale conosco',  href: 'https://www.instagram.com/leibmec/', external: true },
-    ],
-    footer_copyright: '© 2026 LEIbmec — Liga de Empreendedorismo Ibmec SP',
-
-    // ── FAQ ──
-    faq_items: [
-      { id: 'faq-1', icon: 'fi-rr-user',     question: 'Preciso ter experiência em empreendedorismo?', answer: 'Não. Buscamos pessoas curiosas e comprometidas. Você aprenderá tudo o que precisa dentro da liga — o que importa é a disposição para aprender e agir.' },
-      { id: 'faq-2', icon: 'fi-rr-clock',    question: 'Qual é o nível de comprometimento esperado?',  answer: 'Reuniões semanais + participação em eventos e projetos. Estimamos cerca de 4–6 horas por semana, mas isso varia conforme o pilar e o momento do semestre.' },
-      { id: 'faq-3', icon: 'fi-rr-calendar', question: 'Posso me inscrever em qualquer período?',       answer: 'Sim, desde que você seja aluno do Ibmec SP. As seleções ocorrem no início de cada semestre — fique atento ao nosso Instagram para não perder o prazo.' },
-      { id: 'faq-4', icon: 'fi-rr-layers',   question: 'Posso participar de mais de um pilar?',         answer: 'Cada membro é alocado em um pilar principal, mas projetos cross-funcionais são comuns e encorajados. Você terá contato com todas as frentes da liga.' },
-    ],
-
-    // ── Processo Seletivo Page ──
-    processoPage_chip: 'Processo Seletivo',
-    processoPage_title: 'Seja parte da',
-    processoPage_subtitle: 'Estamos sempre em busca de pessoas apaixonadas por empreendedorismo, prontas para aprender, colaborar e construir algo real.',
-    processoPage_howChip: 'Como funciona',
-    processoPage_howTitle: 'As etapas do processo',
-    processoPage_faqChip: 'Dúvidas',
-    processoPage_faqTitle: 'Perguntas Frequentes',
-    processoPage_ctaBtn: 'Quero fazer parte',
-    processoPage_note: 'As inscrições são abertas semestralmente. Fique atento ao nosso Instagram para não perder o prazo.',
-    processoPage_steps: [
-      { n: '01', title: 'Inscrição',          desc: 'Preencha o formulário online com seus dados e motivações. Queremos entender quem você é e o que quer construir.' },
-      { n: '02', title: '1ª Fase',            desc: 'Prova escrita para avaliar raciocínio, conhecimento e capacidade analítica. Objetiva, sem decoreba.' },
-      { n: '03', title: 'Dinâmica em Grupo',  desc: 'Atividade presencial em equipe. Avaliamos como você pensa, colabora e se posiciona sob pressão real.' },
-      { n: '04', title: 'Entrevista Pessoal', desc: 'Conversa individual com a gestão para alinhar expectativas, valores e confirmar o encaixe com a liga.' },
-    ],
+    nav: { inicio: 'Início', membros: 'Membros', empresas: 'Empresas', palestrar: 'Palestrar', cta: 'Quero fazer parte' },
+    footer: {
+      tagline: 'Conectando ideias ao mercado desde 2018.',
+      navTitle: 'Navegação', contactTitle: 'Contato',
+      links: ['Início', 'Membros', 'Empresas', 'Palestrar'],
+      contactLinks: { selection: 'Processo seletivo', instagram: 'Instagram', linkedin: 'LinkedIn' },
+      copyright: '© 2026 LEIbmec — Liga de Empreendedorismo Ibmec SP', campus: 'Ibmec São Paulo',
+    },
+    home: {
+      hero: { badge: 'Conectando ideias ao mercado', titleStart: 'Aqui você', titleHighlight: 'aprende', titleEnd: 'fazendo.', description: 'Projetos reais, conexões com o mercado e habilidades que a faculdade não ensina — tudo dentro do Ibmec SP.', ctaMember: 'Quero fazer parte', ctaPartner: 'Quero ser parceiro', stat1: '+6 anos de história', stat2: 'Top 5 ligas do Ibmec SP' },
+      news: { badge: 'Novidade', title: 'Vem aí: Semana do Empreendedorismo', subtitle: 'Inscrições abertas · Em breve · Ibmec SP', cta: 'Quero participar' },
+      segmented: { chip: 'Para quem é a LEIbmec', title: 'A liga tem um caminho pra cada perfil', cards: [{ title: 'Quero ser membro', description: 'Entra na liga, escolhe sua área e começa a construir coisas de verdade.', btn: 'Ver como funciona' }, { title: 'Quero ser parceiro', description: 'Acesse talentos qualificados antes do mercado e coloque sua marca no radar de quem importa.', btn: 'Quero ser parceiro' }, { title: 'Quero palestrar', description: 'Fale para um público que escolheu estar aqui. Construa autoridade e deixe sua marca.', btn: 'Falar com a liga' }] },
+      socialProof: { chip: 'Prova social', title: 'Pessoas reais, resultados reais', metrics: [{ value: '2.5k+', label: 'pessoas impactadas' }, { value: '12+', label: 'eventos realizados' }, { value: '6', label: 'anos de história' }, { value: '6', label: 'áreas de atuação' }] },
+      about: { chip: 'O que é a LEIbmec', title: 'Mais de 6 anos formando quem quer ir além da faculdade', p1: 'A LEIbmec é uma liga de empreendedorismo criada por alunos, para alunos. Somos uma das 5 maiores ligas do Ibmec SP — com projetos ativos, eventos com profissionais do mercado e uma comunidade que pensa em negócios, carreira e impacto real.', p2: 'Aqui você não fica só ouvindo. Você entra em uma área, tem responsabilidades reais e constrói junto com outras pessoas que também querem mais do que a faculdade oferece.', pillars: [{ title: 'Aprenda fazendo', desc: 'Projetos e entregas reais que vão direto no currículo' }, { title: 'Conecte-se de verdade', desc: 'Empresas, mentores e alunos com os mesmos objetivos' }, { title: 'Acelere sua carreira', desc: 'Habilidades práticas que a faculdade não te dá' }] },
+      profiles: { chip: 'Por que entrar', title: 'O que você ganha em cada caminho', cards: [{ audience: 'Estudante', label: 'Para quem quer aprender fazendo', bullets: ['Experiência real', 'Networking', 'Pertencimento', 'Evolução no currículo'], cta: 'Quero ser membro' }, { audience: 'Empresa', label: 'Para quem busca talentos qualificados', bullets: ['Acesso antecipado', 'Visibilidade de marca', 'Projetos', 'Comunidade engajada'], cta: 'Quero ser parceiro' }, { audience: 'Palestrante', label: 'Para quem quer impactar e ser referência', bullets: ['Autoridade', 'Exposição nos canais', 'Público que age', 'Conexões futuras'], cta: 'Quero palestrar' }] },
+      empreendaMais: { badge: 'Plataforma exclusiva', titlePre: 'Conheça o', highlight: 'Empreenda+', p1: 'Um sistema criado pelos próprios membros da liga.', p2: 'Estude cada área, assista aulas com especialistas e aprenda na prática. Conteúdos que a grade não tem, desenvolvidos por quem está dentro da liga.', cta: 'Conhecer o Empreenda+' },
+      parcerias: { chip: 'Parcerias', title: 'Quem está com a gente', subtitle: 'Ligas aliadas e empresas que acreditam no que a LEIbmec constrói.', ligasTitle: 'Ligas do Ibmec SP', empresasTitle: 'Empresas parceiras', comingSoon: 'Em breve', emptyMsg: 'Ainda construindo nosso portfólio de parceiros. Seu logo pode estar aqui.', ctaMsg: 'Quer colocar sua marca no radar de quem importa?', ctaBtn: 'Quero ser parceiro', ibtechDesc: 'Liga de Tecnologia e Inovação do Ibmec SP', nimiDesc: 'Núcleo de Investimentos do Ibmec SP' },
+    },
+    membros: {
+      hero: { badge: 'Para estudantes', titleStart: 'Faça parte de algo que vai', titleHighlight: 'além da aula', description: 'Na LEIbmec você entra em uma área, participa de projetos reais e constrói junto com pessoas que também querem mais. Sem teoria solta — aqui tudo vira entrega.', cta: 'Quero me inscrever' },
+      dayToDay: { chip: 'Dia a dia', title: 'Como é ser membro da LEIbmec', description: 'Você entra em uma área, participa de reuniões semanais e trabalha em projetos com prazo e entrega real. Vai a eventos, conhece profissionais do mercado e ainda constrói um network que dura muito além do semestre.', pills: ['Reuniões semanais', 'Projetos reais', 'Eventos e palestras', 'Networking ativo'] },
+      areas: { chip: '6 áreas', title: 'Escolha a área que faz mais sentido pra você', items: [{ name: 'Marketing', description: 'Cuida da voz da liga. Redes sociais, identidade visual, campanhas e posicionamento de marca.' }, { name: 'Relações Institucionais', description: 'Conecta a liga com o mundo lá fora. Negocia parcerias, fecha patrocínios e constrói pontes com empresas.' }, { name: 'Gestão Interna', description: 'Cuida das pessoas da liga. Processo seletivo, onboarding, engajamento e cultura.' }, { name: 'Projetos', description: 'Onde as ideias viram realidade. Desenvolve e entrega os projetos da liga do início ao fim.' }, { name: 'Inteligência de Mercado', description: 'Analisa tendências, oportunidades e dados. Dá a base estratégica para as decisões da liga.' }, { name: 'Tecnologia e Desenvolvimento', description: 'Constrói as ferramentas que movem a liga. Foi aqui que nasceu o Empreenda+.' }] },
+      process: { chip: 'Processo seletivo', title: 'Como entrar na liga', steps: [{ number: '01', title: 'Inscrição online', description: 'Formulário rápido — dados básicos e qual área te interessa mais.' }, { number: '02', title: 'Entrevista', description: 'Uma conversa com líderes da área. Sem pegadinha — só queremos te conhecer.' }, { number: '03', title: 'Resultado e boas-vindas', description: 'Aprovados recebem acesso ao grupo, ao Empreenda+ e já entram na primeira reunião.', last: true }] },
+      cta: { badge: 'Próximo processo seletivo: em breve', title: 'Vagas limitadas por área.', description: 'Garanta sua vaga no processo seletivo da LEIbmec.', btn: 'Quero me inscrever' },
+    },
+    empresas: {
+      hero: { badge: 'Para empresas e recrutadores', titleStart: 'Acesse os melhores talentos do Ibmec', titleHighlight: 'antes de todo mundo', description: 'A LEIbmec conecta sua empresa com alunos de alto potencial — engajados, treinados em projetos reais e prontos para contribuir desde o primeiro dia.', cta: 'Quero ser parceiro' },
+      valueProps: { chip: 'Por que ser parceiro', title: 'O que sua empresa ganha', items: [{ title: 'Acesso antecipado a talentos', description: 'Conheça os alunos antes do mercado. Faça palestras, workshops ou processos seletivos direto na liga.' }, { title: 'Sua marca presente no campus', description: 'Divulgação nos eventos, materiais e canais da liga. Presença real para um público qualificado.' }, { title: 'Projetos e consultorias reais', description: 'A liga pode desenvolver projetos para sua empresa com metodologias reais e alunos comprometidos.' }] },
+      members: { chip: 'Os membros', title: 'Você vai encontrar pessoas assim', description: 'Membros com dedicação real — não só participação passiva. Cada um atua em uma área com metas e entregas concretas. São alunos do Ibmec SP que escolheram ir além da grade, construir experiências e estar preparados para o mercado.', tags: ['Projetos com entrega real', 'Reuniões semanais', 'Acesso ao Empreenda+', 'Eventos com o mercado'] },
+      process: { chip: 'Como funciona', title: '3 passos para fechar a parceria', steps: [{ number: '01', title: 'Entre em contato', description: 'Preencha o formulário ou fale direto com nossa área de Relações Institucionais.' }, { number: '02', title: 'Alinhamos a parceria', description: 'Reunião para entender o que faz sentido — evento, recrutamento, projeto ou visibilidade.' }, { number: '03', title: 'Sua marca entra na liga', description: 'Execução, registro e presença nos canais da LEIbmec durante toda a parceria.', last: true }] },
+      cta: { title: 'Sua empresa ainda não é parceira?', description: 'Fale com a área de Relações Institucionais da LEIbmec.', btn: 'Quero ser parceiro' },
+    },
+    palestrar: {
+      hero: { badge: 'Para palestrantes e mentores', titleStart: 'Fale para quem', titleHighlight: 'realmente quer ouvir', description: 'A LEIbmec reúne alunos que buscam empreendedorismo por conta própria — não por obrigação. Um público engajado, com fome de referências reais.', cta: 'Quero palestrar' },
+      why: { chip: 'Por que vale a pena', title: 'O que você ganha palestrando na LEIbmec', cards: [{ title: 'Fortalece seu nome e posicionamento', description: 'Ser referência para jovens que estão começando é uma das formas mais duradouras de construir autoridade.' }, { title: 'Exposição real nos canais da liga', description: 'Sua palestra é divulgada antes e depois — Instagram, LinkedIn e grupos de alunos. Você não aparece só no dia, você fica.' }, { title: 'Um público que aplica o que aprende', description: 'Os membros estão em projetos ativos. O que você compartilha tem chance real de virar ação.' }, { title: 'Portas abertas para o que vem depois', description: 'Vários palestrantes viraram mentores fixos ou parceiros da liga após o primeiro evento.' }] },
+      events: { chip: 'Eventos anteriores', title: 'Veja como é na prática' },
+      how: { chip: 'Como funciona', title: '3 passos simples', steps: [{ number: '01', title: 'Você preenche o formulário', description: 'Conta sobre você, o tema e o formato preferido — presencial ou online.' }, { number: '02', title: 'A liga entra em contato', description: 'Alinhamos data, formato e divulgação. Cuidamos de tudo para você só precisar aparecer.' }, { number: '03', title: 'Palestra + registro completo', description: 'Fotos e vídeos disponibilizados para você usar. Divulgação antes, durante e depois.', last: true }] },
+      cta: { title: 'Quer palestrar na LEIbmec?', description: 'Resposta em até 3 dias úteis.', btn: 'Quero palestrar' },
+    },
+    tabs: {
+      chip: 'A liga por dentro', title: 'Conheça a liga por dentro',
+      tabLabels: ['Nossa missão', 'Nossas áreas', 'Nossos números', 'Como funcionamos'],
+      missao: { quoteStart: '"Conectar ideias ao mercado, formando estudantes que', highlight: 'aprendem fazendo', quoteEnd: '".', description: 'A LEIbmec existe para ser o espaço que a faculdade não oferece — onde você tem responsabilidade real, projetos reais e conexões reais. Desde 2018 construindo uma das maiores ligas do Ibmec SP.' },
+      areas: [{ name: 'Marketing', badge: 'Criatividade', description: 'Cuida da voz da liga. Redes sociais, identidade visual e posicionamento de marca.' }, { name: 'Relações Institucionais', badge: 'Relacionamento', description: 'Fecha parcerias e patrocínios. Constrói pontes com empresas e o mercado.' }, { name: 'Gestão Interna', badge: 'Pessoas', description: 'Cuida da cultura da liga. Processo seletivo, onboarding e engajamento.' }, { name: 'Projetos', badge: 'Execução', description: 'Onde ideias viram realidade. Entrega projetos do início ao fim.' }, { name: 'Inteligência de Mercado', badge: 'Estratégia', description: 'Analisa tendências e oportunidades. Dá a base estratégica para a liga.' }, { name: 'Tecnologia', badge: 'Produto', description: 'Constrói as ferramentas da liga. Foi aqui que nasceu o Empreenda+.' }],
+      numeros: [{ value: '+6', label: 'anos de história' }, { value: 'Top 5', label: 'ligas do Ibmec SP' }, { value: '6', label: 'áreas ativas' }, { value: '2.5k+', label: 'pessoas impactadas' }, { value: '12+', label: 'eventos realizados' }, { value: '6+', label: 'empresas parceiras' }],
+      como: [{ number: '01', title: 'Você entra em uma área', desc: 'Processo seletivo semestral com formulário e entrevista. Vagas limitadas por área.' }, { number: '02', title: 'Tem responsabilidades reais', desc: 'Projetos, metas e entregas por semestre. Aqui tudo tem prazo e resultado esperado.' }, { number: '03', title: 'Participa da liga', desc: 'Reuniões semanais, eventos com o mercado e networking com quem pensa como você.' }, { number: '04', title: 'Sai diferente', desc: 'Currículo, conexões e habilidades práticas que a faculdade não te dá.' }],
+    },
+    parceiros: {
+      hero: { badge: 'Formulário de parceria', titleStart: 'Vamos construir algo', titleHighlight: 'juntos?', description: 'A LEIbmec conecta sua empresa com alunos de alto potencial do Ibmec SP. Preencha o formulário e nossa área de Relações Institucionais entra em contato para alinhar os detalhes.' },
+      bullets: [{ title: 'Acesso antecipado a talentos', desc: 'Conheça os melhores alunos antes do mercado.' }, { title: 'Sua marca num público engajado', desc: 'Estudantes que escolheram estar aqui — não por obrigação.' }, { title: 'Projetos e consultorias reais', desc: 'Alunos comprometidos com metodologias e entregas concretas.' }],
+      form: { chip: 'Formulário de contato', title: 'Fale com a nossa área de Relações Institucionais', nome: 'Nome completo *', nomePlaceholder: 'Seu nome', email: 'Email corporativo *', emailPlaceholder: 'voce@empresa.com.br', empresa: 'Empresa *', empresaPlaceholder: 'Nome da empresa', cargo: 'Cargo *', cargoPlaceholder: 'Seu cargo', interesses: 'O que você busca?', mensagem: 'Mensagem', mensagemPlaceholder: 'Conte um pouco mais sobre o que você tem em mente...', submit: 'Enviar proposta', options: [{ id: 'recrutamento', label: 'Recrutamento de talentos' }, { id: 'visibilidade', label: 'Visibilidade de marca no campus' }, { id: 'projetos', label: 'Projetos e consultorias' }, { id: 'palestras', label: 'Palestras e eventos' }, { id: 'outro', label: 'Outro' }], errors: { nome: 'Campo obrigatório', email: 'Email inválido', empresa: 'Campo obrigatório', cargo: 'Campo obrigatório', interesses: 'Selecione ao menos uma opção' }, success: { title: 'Recebemos seu contato!', message: 'Nossa área de Relações Institucionais entra em contato em até', days: '3 dias úteis', messageEnd: '. Enquanto isso, você pode nos encontrar por aqui:', back: '← Voltar ao início' } },
+    },
+    contatoPalestrante: {
+      hero: { badge: 'Para palestrantes e mentores', title: 'Vamos', titleHighlight: 'marcar sua palestra?', description: 'Preencha o formulário e nossa equipe entra em contato em até 3 dias úteis para alinhar data, formato e divulgação.' },
+      bullets: [{ title: 'Um público que escolheu estar aqui', desc: 'Membros engajados, em projetos ativos — não assistindo por obrigação.' }, { title: 'Divulgação antes, durante e depois', desc: 'Instagram, LinkedIn e grupos internos. Você não aparece só no dia.' }, { title: 'Fotos e vídeo disponibilizados', desc: 'Registro profissional para você usar onde quiser.' }],
+      form: { chip: 'Formulário de contato', title: 'Conte um pouco sobre você', nome: 'Nome completo *', nomePlaceholder: 'Seu nome', email: 'Email *', emailPlaceholder: 'voce@email.com', linkedin: 'LinkedIn', linkedinLabel: '(opcional)', linkedinPlaceholder: 'linkedin.com/in/seu-perfil', tema: 'Tema da palestra *', formato: 'Formato preferido *', mensagem: 'Sobre você e sua palestra', mensagemLabel: '(opcional)', mensagemPlaceholder: 'Breve bio, experiências relevantes, o que você quer trazer para os membros...', submit: 'Quero palestrar na LEIbmec', responseTime: 'Respondemos em até 3 dias úteis. Sem spam.', temaOptions: [{ id: 'empreendedorismo', label: 'Empreendedorismo' }, { id: 'carreira', label: 'Carreira e mercado de trabalho' }, { id: 'tecnologia', label: 'Tecnologia e inovação' }, { id: 'financas', label: 'Finanças e investimentos' }, { id: 'marketing', label: 'Marketing e branding' }, { id: 'outro', label: 'Outro' }], formatoOptions: [{ id: 'presencial', label: 'Presencial' }, { id: 'online', label: 'Online' }, { id: 'hibrido', label: 'Híbrido' }, { id: 'qualquer', label: 'Sem preferência' }], errors: { nome: 'Campo obrigatório', email: 'Email inválido', tema: 'Selecione ao menos um tema', formato: 'Selecione ao menos um formato' }, success: { title: 'Recebemos sua proposta!', message: 'Nosso time entra em contato em até', days: '3 dias úteis', messageEnd: '. Enquanto isso, nos encontre por aqui:', back: '← Voltar ao início' } },
+    },
   },
 
   en: {
-    // ── Nav ──
-    nav_tagline: 'Entrepreneurship League',
-    nav_manifesto: 'Manifesto',
-    nav_pilares: 'Pillars',
-    nav_eventos: 'Events',
-    nav_selecao: 'Selection',
-    nav_parceria: 'Partnership',
-    nav_inscrevase: 'Apply now',
-    nav_openMenu: 'Open menu',
-    nav_closeMenu: 'Close menu',
-
-    // ── Hero ──
-    hero_eyebrow: 'Entrepreneurship League · Ibmec SP',
-    hero_titleMain: 'The place where future founders',
-    hero_titleEm: 'take shape.',
-    hero_subtitle: 'LEIbmec is the entrepreneurship ecosystem of Ibmec SP. We empower, connect, and accelerate students who want to build real businesses — not just study about them.',
-    hero_ctaPrimary: 'Join us',
-    hero_ctaSecondary: 'About the league',
-    hero_card1Aria: '2.5k+ people in the ecosystem',
-    hero_card1Label: 'Reach',
-    hero_card1Sub: 'people in the ecosystem',
-    hero_card1BackTitle: 'Active community',
-    hero_card1BackDesc: 'Students, alumni, and partners that are part of the LEIbmec ecosystem.',
-    hero_card2Aria: '12 events held in 2024-25',
-    hero_card2Label: 'Events',
-    hero_card2Sub: 'held in 2024–25',
-    hero_card2BackTitle: 'From Summit to everyday',
-    hero_card2BackDesc: 'Talks, workshops, visits and Z-Summit — experiences that mark everyone who goes through the league.',
-    hero_card3Aria: '6 internal areas of operation',
-    hero_card3Label: 'Sectors',
-    hero_card3Sub: 'internal areas of operation',
-    hero_card3BackTitle: 'Real structure',
-    hero_card3BackDesc: 'Management, Marketing, Projects, IR, Market Intelligence and Technology & Innovation.',
-
-    // ── Marquee ──
-    marquee_items: [
-      'Entrepreneurship', 'Z-Summit 2025', 'Learning Week', 'XP Inc. Visit',
-      'Ibmec São Paulo', 'Networking', 'New Leadership 2025.2', 'Talks', 'Workshops',
-    ],
-
-    // ── Manifesto ──
-    manifesto_chip: 'Manifesto',
-    manifesto_title: 'Why we exist',
-    manifesto_p1: 'Brazil needs more founders — not more candidates for someone else\'s job. Universities produce highly qualified professionals, but rarely produce those who decide to create the next business.',
-    manifesto_p2: 'LEIbmec exists to fill that gap.',
-    manifesto_p3: 'We created a space where students learn by doing: they pitch ideas, embrace failure, build alongside others, and connect with those who have already built something real.',
-    manifesto_quote: '"We don\'t teach theory. We provoke action."',
-    manifesto_p4: 'Every talk, every workshop, every event is a bet on the potential of those still inside university — but already thinking beyond it.',
-    manifesto_p5: 'These are tomorrow\'s founders. And they are right here.',
-
-    // ── Pilares ──
-    pilares_chip: 'What we do',
-    pilares_title: 'Our pillars',
-    pilares_items: [
-      { num: '01 / 06', name: 'Internal Management',     desc: 'The core that keeps the league running. Responsible for processes, people, organizational culture, and the continuous evolution of LEIbmec.' },
-      { num: '02 / 06', name: 'Marketing',               desc: 'Communication, visual identity, and digital presence. Transforms what happens inside LEI into content that inspires beyond it.' },
-      { num: '03 / 06', name: 'Market Intelligence',     desc: 'Trend analysis, ecosystem mapping, and insight generation that supports strategic decisions for the league and its members.' },
-      { num: '04 / 06', name: 'Projects',                desc: 'Conception and execution of real initiatives — from events to training programs. The place where ideas become concrete deliveries.' },
-      { num: '05 / 06', name: 'Institutional Relations', desc: 'Bridges with companies, investors, other leagues, and the institution itself. The team that expands reach and opens doors for the ecosystem.' },
-      { num: '06 / 06', name: 'Technology & Innovation', desc: 'Explores the latest in tech, AI, and business models. Content, projects, and a vision of the future for those who want to build the next great product.' },
-    ],
-
-    // ── Números ──
-    numeros_items: [
-      { label: 'people reached in the ecosystem' },
-      { label: 'events held in 2024–25' },
-      { label: 'pieces of content on entrepreneurship' },
-      { label: "focus on building tomorrow's founders" },
-    ],
-
-    // ── Eventos ──
-    eventos_chip: 'Experiences',
-    eventos_title: 'Events that leave a mark.',
-    eventos_igLink: 'See on Instagram',
-    eventos_main: [
-      { tag: 'Annual Event', name: 'Z-Summit',    desc: 'A full day of immersion with talks, panels, and networking that goes beyond the university.' },
-      { tag: 'Learning',     name: 'Learning Week', desc: 'Finance, marketing, and venture capital in an intensive week of learning.' },
-      { tag: 'Visit',        name: 'XP Inc.',      desc: "A visit to Brazil's largest fintech — seeing from the inside how something great is built." },
-    ],
-    eventos_activities: [
-      { tag: 'Activity', name: 'Talks & Panels',    desc: "Entrepreneurs, investors, and executives share what textbooks don't teach — from M&A to billion-dollar startups." },
-      { tag: 'Workshop', name: 'Group Workshops',   desc: 'Hands-on activities that develop strategic thinking, leadership, and execution under real pressure.' },
-      { tag: 'Project',  name: 'Finance Week',      desc: 'Personal finance, business structure, and first investments — for those who want to build with financial responsibility.' },
-      { tag: 'Project',  name: 'Internal Projects', desc: "Initiatives led by members themselves — from conception to delivery. The league's hands-on lab." },
-    ],
-
-    // ── Processo Steps (home) ──
-    processo_chip: 'Selection Process',
-    processo_title: 'How to join the league',
-    processo_btn: 'Learn more',
-    processo_steps: [
-      { n: '01', icon: 'fi-rr-pencil',       title: 'Application',       desc: 'Fill out the online form with your background and motivations. We want to understand who you are and what you want to build.', badge: 'Online form' },
-      { n: '02', icon: 'fi-rr-document',     title: '1st Round',         desc: 'A written test to assess reasoning, knowledge, and analytical skills. Objective, no memorization required.', badge: 'Written test' },
-      { n: '03', icon: 'fi-rr-user-add',     title: 'Group Activity',    desc: 'An in-person team activity. We evaluate how you think, collaborate, and position yourself under real pressure.', badge: 'In-person' },
-      { n: '04', icon: 'fi-rr-comment-user', title: 'Personal Interview', desc: 'A one-on-one conversation with management to align expectations, values, and confirm your fit with the league.', badge: 'Final round' },
-    ],
-
-    // ── CTA ──
-    cta_chip: 'Strategic Partnerships',
-    cta_title: "Let's build something bigger together.",
-    cta_subtitle: "LEIbmec is ready to take the next step. We seek partners who understand that investing in tomorrow's founders is the most strategic return there is.",
-    cta_btn1: 'Become a partner',
-    cta_btn2: 'Meet the community',
-
-    // ── Footer ──
-    footer_tagline: 'Entrepreneurship League',
-    footer_desc: "Entrepreneurship League of Ibmec SP. Building tomorrow's founders, today.",
-    footer_col1Title: 'League',
-    footer_col1Links: [
-      { label: 'Manifesto',  href: '/#manifesto' },
-      { label: 'Pillars',    href: '/#pilares' },
-      { label: 'Events',     href: '/#eventos' },
-      { label: 'Selection',  href: '/processo-seletivo' },
-    ],
-    footer_col2Title: 'Join',
-    footer_col2Links: [
-      { label: 'Apply',     href: 'https://forms.gle/anKhw9pBqYVkjnqG6', external: true },
-      { label: 'Instagram', href: 'https://www.instagram.com/leibmec/', external: true },
-    ],
-    footer_col3Title: 'Partnerships',
-    footer_col3Links: [
-      { label: 'Become a partner', href: 'https://forms.gle/anKhw9pBqYVkjnqG6', external: true },
-      { label: 'Contact us',       href: 'https://www.instagram.com/leibmec/', external: true },
-    ],
-    footer_copyright: '© 2026 LEIbmec — Entrepreneurship League Ibmec SP',
-
-    // ── FAQ ──
-    faq_items: [
-      { id: 'faq-1', icon: 'fi-rr-user',     question: 'Do I need entrepreneurship experience?',     answer: "No. We look for curious and committed people. You'll learn everything you need within the league — what matters is the willingness to learn and act." },
-      { id: 'faq-2', icon: 'fi-rr-clock',    question: 'What level of commitment is expected?',      answer: 'Weekly meetings + participation in events and projects. We estimate around 4–6 hours per week, though this varies by pillar and time of semester.' },
-      { id: 'faq-3', icon: 'fi-rr-calendar', question: 'Can I apply at any time?',                   answer: "Yes, as long as you are an Ibmec SP student. Selections happen at the start of each semester — keep an eye on our Instagram so you don't miss the deadline." },
-      { id: 'faq-4', icon: 'fi-rr-layers',   question: 'Can I participate in more than one pillar?', answer: "Each member is assigned to one main pillar, but cross-functional projects are common and encouraged. You'll have contact with all areas of the league." },
-    ],
-
-    // ── Processo Seletivo Page ──
-    processoPage_chip: 'Selection Process',
-    processoPage_title: 'Be part of',
-    processoPage_subtitle: 'We are always looking for people passionate about entrepreneurship, ready to learn, collaborate, and build something real.',
-    processoPage_howChip: 'How it works',
-    processoPage_howTitle: 'The stages of the process',
-    processoPage_faqChip: 'Questions',
-    processoPage_faqTitle: 'Frequently Asked Questions',
-    processoPage_ctaBtn: 'Join us',
-    processoPage_note: "Applications open each semester. Keep an eye on our Instagram so you don't miss the deadline.",
-    processoPage_steps: [
-      { n: '01', title: 'Application',       desc: 'Fill out the online form with your background and motivations. We want to understand who you are and what you want to build.' },
-      { n: '02', title: '1st Round',         desc: 'A written test to assess reasoning, knowledge, and analytical skills. Objective, no memorization required.' },
-      { n: '03', title: 'Group Activity',    desc: 'An in-person team activity. We evaluate how you think, collaborate, and position yourself under real pressure.' },
-      { n: '04', title: 'Personal Interview', desc: 'A one-on-one conversation with management to align expectations, values, and confirm your fit with the league.' },
-    ],
+    nav: { inicio: 'Home', membros: 'Members', empresas: 'Companies', palestrar: 'Speak', cta: 'Join us' },
+    footer: {
+      tagline: 'Connecting ideas to the market since 2018.',
+      navTitle: 'Navigation', contactTitle: 'Contact',
+      links: ['Home', 'Members', 'Companies', 'Speak'],
+      contactLinks: { selection: 'Selection process', instagram: 'Instagram', linkedin: 'LinkedIn' },
+      copyright: '© 2026 LEIbmec — Entrepreneurship League Ibmec SP', campus: 'Ibmec São Paulo',
+    },
+    home: {
+      hero: { badge: 'Connecting ideas to the market', titleStart: 'Here you', titleHighlight: 'learn', titleEnd: 'by doing.', description: "Real projects, market connections and skills your college doesn't teach — all inside Ibmec SP.", ctaMember: 'Join us', ctaPartner: 'Become a partner', stat1: '+6 years of history', stat2: 'Top 5 leagues at Ibmec SP' },
+      news: { badge: 'News', title: 'Coming soon: Entrepreneurship Week', subtitle: 'Open registrations · Coming soon · Ibmec SP', cta: 'I want to join' },
+      segmented: { chip: 'Who is LEIbmec for', title: 'The league has a path for every profile', cards: [{ title: 'I want to be a member', description: 'Join the league, choose your area and start building real things.', btn: 'See how it works' }, { title: 'Become a partner', description: 'Access qualified talent before the market and put your brand on the radar of those who matter.', btn: 'Become a partner' }, { title: 'I want to speak', description: 'Talk to an audience that chose to be here. Build authority and leave your mark.', btn: 'Talk to the league' }] },
+      socialProof: { chip: 'Social proof', title: 'Real people, real results', metrics: [{ value: '2.5k+', label: 'people impacted' }, { value: '12+', label: 'events held' }, { value: '6', label: 'years of history' }, { value: '6', label: 'active areas' }] },
+      about: { chip: 'What is LEIbmec', title: 'Over 6 years shaping students who want to go beyond college', p1: 'LEIbmec is an entrepreneurship league created by students, for students. We are one of the 5 largest leagues at Ibmec SP — with active projects, events with market professionals and a community that thinks about business, career and real impact.', p2: "Here you don't just listen. You join an area, have real responsibilities and build alongside people who also want more than college offers.", pillars: [{ title: 'Learn by doing', desc: 'Real projects and deliveries that go straight to your resume' }, { title: 'Connect for real', desc: 'Companies, mentors and students with the same goals' }, { title: 'Accelerate your career', desc: "Practical skills that college doesn't give you" }] },
+      profiles: { chip: 'Why join', title: 'What you gain in each path', cards: [{ audience: 'Student', label: 'For those who want to learn by doing', bullets: ['Real experience', 'Networking', 'Belonging', 'Resume growth'], cta: 'I want to be a member' }, { audience: 'Company', label: 'For those seeking qualified talent', bullets: ['Early access', 'Brand visibility', 'Projects', 'Engaged community'], cta: 'Become a partner' }, { audience: 'Speaker', label: 'For those who want to impact and be a reference', bullets: ['Authority', 'Channel exposure', 'Audience that acts', 'Future connections'], cta: 'I want to speak' }] },
+      empreendaMais: { badge: 'Exclusive platform', titlePre: 'Meet the', highlight: 'Empreenda+', p1: "A system built by the league's own members.", p2: "Study each area, watch classes with experts and learn in practice. Content that the curriculum doesn't have, developed by those inside the league.", cta: 'Explore Empreenda+' },
+      parcerias: { chip: 'Partnerships', title: 'Who is with us', subtitle: 'Allied leagues and companies that believe in what LEIbmec builds.', ligasTitle: 'Ibmec SP Leagues', empresasTitle: 'Partner companies', comingSoon: 'Coming soon', emptyMsg: 'Still building our partner portfolio. Your logo could be here.', ctaMsg: 'Want to put your brand on the radar of those who matter?', ctaBtn: 'Become a partner', ibtechDesc: 'Technology and Innovation League at Ibmec SP', nimiDesc: 'Investment Hub at Ibmec SP' },
+    },
+    membros: {
+      hero: { badge: 'For students', titleStart: 'Be part of something that goes', titleHighlight: 'beyond class', description: "At LEIbmec you join an area, participate in real projects and build alongside people who also want more. No loose theory — here everything becomes a deliverable.", cta: 'I want to apply' },
+      dayToDay: { chip: 'Day to day', title: "What it's like to be a LEIbmec member", description: "You join an area, attend weekly meetings and work on projects with real deadlines and deliverables. You go to events, meet market professionals and build a network that lasts well beyond the semester.", pills: ['Weekly meetings', 'Real projects', 'Events & talks', 'Active networking'] },
+      areas: { chip: '6 areas', title: 'Choose the area that makes the most sense for you', items: [{ name: 'Marketing', description: "Manages the league's voice. Social media, visual identity, campaigns and brand positioning." }, { name: 'Institutional Relations', description: 'Connects the league with the outside world. Negotiates partnerships, closes sponsorships and builds bridges with companies.' }, { name: 'Internal Management', description: "Looks after the league's people. Selection process, onboarding, engagement and culture." }, { name: 'Projects', description: "Where ideas become reality. Develops and delivers the league's projects from start to finish." }, { name: 'Market Intelligence', description: "Analyzes trends, opportunities and data. Provides the strategic foundation for the league's decisions." }, { name: 'Technology & Development', description: 'Builds the tools that drive the league. This is where Empreenda+ was born.' }] },
+      process: { chip: 'Selection process', title: 'How to join the league', steps: [{ number: '01', title: 'Online application', description: 'Quick form — basic info and which area interests you most.' }, { number: '02', title: 'Interview', description: "A conversation with area leaders. No tricks — we just want to get to know you." }, { number: '03', title: 'Result & welcome', description: 'Approved members get access to the group, Empreenda+ and join the first meeting.', last: true }] },
+      cta: { badge: 'Next selection process: coming soon', title: 'Limited spots per area.', description: 'Secure your spot in the LEIbmec selection process.', btn: 'I want to apply' },
+    },
+    empresas: {
+      hero: { badge: 'For companies & recruiters', titleStart: 'Access the best Ibmec talent', titleHighlight: 'before anyone else', description: 'LEIbmec connects your company with high-potential students — engaged, trained on real projects and ready to contribute from day one.', cta: 'Become a partner' },
+      valueProps: { chip: 'Why partner with us', title: 'What your company gains', items: [{ title: 'Early access to talent', description: 'Meet students before the market does. Run talks, workshops or recruitment processes directly at the league.' }, { title: 'Your brand on campus', description: 'Exposure at events, materials and league channels. Real presence for a qualified audience.' }, { title: 'Real projects & consulting', description: 'The league can develop projects for your company with real methodologies and committed students.' }] },
+      members: { chip: 'The members', title: "You'll find people like this", description: 'Members with real dedication — not just passive participation. Each one works in an area with concrete goals and deliverables. They are Ibmec SP students who chose to go beyond the curriculum, build experiences and be ready for the market.', tags: ['Projects with real deliverables', 'Weekly meetings', 'Access to Empreenda+', 'Market events'] },
+      process: { chip: 'How it works', title: '3 steps to close the partnership', steps: [{ number: '01', title: 'Get in touch', description: 'Fill in the form or speak directly with our Institutional Relations area.' }, { number: '02', title: 'We align the partnership', description: 'A meeting to understand what makes sense — event, recruitment, project or visibility.' }, { number: '03', title: 'Your brand joins the league', description: 'Execution, documentation and presence on LEIbmec channels throughout the partnership.', last: true }] },
+      cta: { title: "Your company isn't a partner yet?", description: "Talk to LEIbmec's Institutional Relations area.", btn: 'Become a partner' },
+    },
+    palestrar: {
+      hero: { badge: 'For speakers & mentors', titleStart: 'Talk to those who', titleHighlight: 'really want to listen', description: "LEIbmec brings together students who seek entrepreneurship on their own — not because they have to. An engaged audience, hungry for real references.", cta: 'I want to speak' },
+      why: { chip: "Why it's worth it", title: 'What you gain by speaking at LEIbmec', cards: [{ title: 'Strengthens your name and positioning', description: 'Being a reference for young people who are just starting out is one of the most lasting ways to build authority.' }, { title: "Real exposure on the league's channels", description: 'Your talk is promoted before and after — Instagram, LinkedIn and student groups. You stay visible beyond the day itself.' }, { title: 'An audience that applies what they learn', description: 'Members are in active projects. What you share has a real chance of turning into action.' }, { title: 'Open doors for what comes next', description: 'Several speakers became regular mentors or league partners after their first event.' }] },
+      events: { chip: 'Past events', title: 'See how it works in practice' },
+      how: { chip: 'How it works', title: '3 simple steps', steps: [{ number: '01', title: 'You fill in the form', description: 'Tell us about yourself, the topic and preferred format — in-person or online.' }, { number: '02', title: 'The league gets in touch', description: 'We align date, format and promotion. We handle everything so you only need to show up.' }, { number: '03', title: 'Talk + full documentation', description: 'Photos and videos made available for you to use. Promotion before, during and after.', last: true }] },
+      cta: { title: 'Want to speak at LEIbmec?', description: 'Response within 3 business days.', btn: 'I want to speak' },
+    },
+    tabs: {
+      chip: 'The league inside', title: 'Get to know the league from within',
+      tabLabels: ['Our mission', 'Our areas', 'Our numbers', 'How we work'],
+      missao: { quoteStart: '"Connecting ideas to the market, shaping students who', highlight: 'learn by doing', quoteEnd: '".', description: "LEIbmec exists to be the space that college doesn't offer — where you have real responsibility, real projects and real connections. Since 2018 building one of the largest leagues at Ibmec SP." },
+      areas: [{ name: 'Marketing', badge: 'Creativity', description: "Manages the league's voice. Social media, visual identity and brand positioning." }, { name: 'Institutional Relations', badge: 'Relationships', description: 'Closes partnerships and sponsorships. Builds bridges with companies and the market.' }, { name: 'Internal Management', badge: 'People', description: "Looks after the league's culture. Selection process, onboarding and engagement." }, { name: 'Projects', badge: 'Execution', description: 'Where ideas become reality. Delivers projects from start to finish.' }, { name: 'Market Intelligence', badge: 'Strategy', description: 'Analyzes trends and opportunities. Provides the strategic foundation for the league.' }, { name: 'Technology', badge: 'Product', description: "Builds the league's tools. This is where Empreenda+ was born." }],
+      numeros: [{ value: '+6', label: 'years of history' }, { value: 'Top 5', label: 'leagues at Ibmec SP' }, { value: '6', label: 'active areas' }, { value: '2.5k+', label: 'people impacted' }, { value: '12+', label: 'events held' }, { value: '6+', label: 'partner companies' }],
+      como: [{ number: '01', title: 'You join an area', desc: 'Semester selection process with a form and interview. Limited spots per area.' }, { number: '02', title: 'You have real responsibilities', desc: 'Projects, goals and deliverables each semester. Everything has a deadline and expected result.' }, { number: '03', title: 'You participate in the league', desc: 'Weekly meetings, market events and networking with like-minded people.' }, { number: '04', title: 'You leave different', desc: "Resume, connections and practical skills that college doesn't give you." }],
+    },
+    parceiros: {
+      hero: { badge: 'Partnership form', titleStart: "Let's build something", titleHighlight: 'together?', description: 'LEIbmec connects your company with high-potential Ibmec SP students. Fill in the form and our Institutional Relations area will get in touch to align the details.' },
+      bullets: [{ title: 'Early access to talent', desc: 'Meet the best students before the market does.' }, { title: 'Your brand with an engaged audience', desc: 'Students who chose to be here — not out of obligation.' }, { title: 'Real projects & consulting', desc: 'Committed students with real methodologies and deliverables.' }],
+      form: { chip: 'Contact form', title: 'Talk to our Institutional Relations area', nome: 'Full name *', nomePlaceholder: 'Your name', email: 'Corporate email *', emailPlaceholder: 'you@company.com', empresa: 'Company *', empresaPlaceholder: 'Company name', cargo: 'Role *', cargoPlaceholder: 'Your role', interesses: 'What are you looking for?', mensagem: 'Message', mensagemPlaceholder: 'Tell us a bit more about what you have in mind...', submit: 'Send proposal', options: [{ id: 'recrutamento', label: 'Talent recruitment' }, { id: 'visibilidade', label: 'Brand visibility on campus' }, { id: 'projetos', label: 'Projects & consulting' }, { id: 'palestras', label: 'Talks & events' }, { id: 'outro', label: 'Other' }], errors: { nome: 'Required field', email: 'Invalid email', empresa: 'Required field', cargo: 'Required field', interesses: 'Select at least one option' }, success: { title: 'We received your message!', message: 'Our Institutional Relations area will get in touch within', days: '3 business days', messageEnd: '. In the meantime, find us here:', back: '← Back to home' } },
+    },
+    contatoPalestrante: {
+      hero: { badge: 'For speakers & mentors', title: "Let's", titleHighlight: 'schedule your talk?', description: 'Fill in the form and our team will get in touch within 3 business days to align date, format and promotion.' },
+      bullets: [{ title: 'An audience that chose to be here', desc: 'Engaged members in active projects — not watching out of obligation.' }, { title: 'Promotion before, during and after', desc: 'Instagram, LinkedIn and internal groups. You stay visible beyond the day itself.' }, { title: 'Photos and video provided', desc: 'Professional documentation for you to use wherever you want.' }],
+      form: { chip: 'Contact form', title: 'Tell us about yourself', nome: 'Full name *', nomePlaceholder: 'Your name', email: 'Email *', emailPlaceholder: 'you@email.com', linkedin: 'LinkedIn', linkedinLabel: '(optional)', linkedinPlaceholder: 'linkedin.com/in/your-profile', tema: 'Talk topic *', formato: 'Preferred format *', mensagem: 'About you and your talk', mensagemLabel: '(optional)', mensagemPlaceholder: 'Brief bio, relevant experience, what you want to bring to the members...', submit: 'I want to speak at LEIbmec', responseTime: 'We respond within 3 business days. No spam.', temaOptions: [{ id: 'empreendedorismo', label: 'Entrepreneurship' }, { id: 'carreira', label: 'Career & job market' }, { id: 'tecnologia', label: 'Technology & innovation' }, { id: 'financas', label: 'Finance & investments' }, { id: 'marketing', label: 'Marketing & branding' }, { id: 'outro', label: 'Other' }], formatoOptions: [{ id: 'presencial', label: 'In-person' }, { id: 'online', label: 'Online' }, { id: 'hibrido', label: 'Hybrid' }, { id: 'qualquer', label: 'No preference' }], errors: { nome: 'Required field', email: 'Invalid email', tema: 'Select at least one topic', formato: 'Select at least one format' }, success: { title: 'We received your proposal!', message: 'Our team will get in touch within', days: '3 business days', messageEnd: '. In the meantime, find us here:', back: '← Back to home' } },
+    },
   },
-}
-
-export function t(lang, key) {
-  const l = lang || 'pt'
-  return translations[l]?.[key] ?? translations['pt'][key] ?? key
 }

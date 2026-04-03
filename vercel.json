@@ -1,6 +1,5 @@
 {
   "rewrites": [
-    { "source": "/processo-seletivo", "destination": "/index.html" },
-    { "source": "/instagram", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
