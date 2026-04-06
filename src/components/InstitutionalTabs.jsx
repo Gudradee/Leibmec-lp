@@ -104,7 +104,7 @@ export function InstitutionalTabs() {
 
   return (
     <section className="py-16 md:py-24 bg-navy-mid">
-      <div className="max-w-6xl mx-auto px-5 md:px-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-14">
         <SectionTitle chip={tb.chip} title={tb.title} dark center />
         <div className="overflow-x-auto -mx-5 px-5 md:mx-0 md:px-0">
           <div className="flex gap-1 min-w-max md:min-w-0 md:justify-center border-b border-white/10">

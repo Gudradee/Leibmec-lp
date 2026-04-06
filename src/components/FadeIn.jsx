@@ -1,15 +1,16 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { smoothTransition } from '../animations/variants.js'
 
 export function FadeIn({ children, delay = 0, className = '', direction = 'up' }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const isInView = useInView(ref, { once: true, margin: '-60px' })
 
   const variants = {
     hidden: {
       opacity: 0,
-      y: direction === 'up' ? 24 : direction === 'down' ? -24 : 0,
-      x: direction === 'left' ? 24 : direction === 'right' ? -24 : 0,
+      y: direction === 'up' ? 28 : direction === 'down' ? -28 : 0,
+      x: direction === 'left' ? 28 : direction === 'right' ? -28 : 0,
       scale: 0.97,
     },
     visible: { opacity: 1, y: 0, x: 0, scale: 1 },
@@ -21,7 +22,7 @@ export function FadeIn({ children, delay = 0, className = '', direction = 'up' }
       variants={variants}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
-      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ ...smoothTransition, delay }}
       className={className}
     >
       {children}

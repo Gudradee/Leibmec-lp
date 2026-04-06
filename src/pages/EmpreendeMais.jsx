@@ -47,7 +47,7 @@ export default function EmpreendaMaisPage() {
           <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-navy-light/50 rounded-full blur-3xl" />
         </div>
-        <div className="relative max-w-6xl mx-auto px-5 md:px-10 w-full">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-14 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <FadeIn>
@@ -91,7 +91,7 @@ export default function EmpreendaMaisPage() {
 
       {/* Features */}
       <section className="py-16 md:py-24 bg-navy-mid">
-        <div className="max-w-6xl mx-auto px-5 md:px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
           <SectionTitle
             chip="O que você encontra lá"
             title="Conteúdo feito por quem está dentro"
@@ -115,7 +115,7 @@ export default function EmpreendaMaisPage() {
 
       {/* Who can access */}
       <section className="py-16 md:py-24 bg-navy-mid">
-        <div className="max-w-6xl mx-auto px-5 md:px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="relative bg-navy border border-gold/20 rounded-3xl p-10 md:p-16 overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
             <div className="relative flex flex-col items-center text-center">

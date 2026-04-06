@@ -9,12 +9,7 @@ import { CTACard } from '../components/CTACard.jsx'
 import { InstitutionalTabs } from '../components/InstitutionalTabs.jsx'
 import { IconBolt, IconHandshake, IconRocket, IconGraduation, IconBuilding, IconMic } from '../components/icons/index.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
-
-const pageVariants = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
-  exit: { opacity: 0, y: -16, transition: { duration: 0.3 } },
-}
+import { pageTransition } from '../animations/variants.js'
 
 function CountUp({ value }) {
   const ref = useRef(null)
@@ -52,8 +47,14 @@ function HeroSection() {
         <motion.div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-navy-light/60 rounded-full blur-3xl" animate={{ y: [0, 30, 0], scale: [1, 1.08, 1] }} transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 2 }} />
         <motion.div className="absolute top-1/2 left-2/3 w-56 h-56 bg-gold/[0.03] rounded-full blur-3xl" animate={{ x: [0, 24, 0], y: [0, -24, 0] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }} />
       </div>
-      <span className="absolute bottom-0 right-0 font-display leading-none select-none pointer-events-none whitespace-nowrap" style={{ fontSize: 'clamp(160px,22vw,340px)', color: 'rgba(255,255,255,0.04)' }} aria-hidden="true">LEI</span>
-      <div className="relative max-w-6xl mx-auto px-5 md:px-10 w-full">
+      <motion.span
+        className="absolute bottom-0 right-0 font-display leading-none select-none pointer-events-none whitespace-nowrap"
+        style={{ fontSize: 'clamp(160px,22vw,340px)', color: 'rgba(255,255,255,0.04)' }}
+        animate={{ y: [0, -18, 0], opacity: [0.04, 0.07, 0.04] }}
+        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        aria-hidden="true"
+      >LEI</motion.span>
+      <div className="relative max-w-7xl mx-auto px-6 md:px-14 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <FadeIn>
@@ -99,7 +100,7 @@ function NewsBanner() {
   const n = t.home.news
   return (
     <div className="bg-gold py-4">
-      <div className="max-w-6xl mx-auto px-5 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto px-6 md:px-14 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <span className="px-2.5 py-0.5 bg-navy text-gold text-xs font-bold font-sans-custom rounded uppercase tracking-wide">{n.badge}</span>
           <span className="text-navy font-semibold font-sans-custom text-sm md:text-base">{n.title}</span>
@@ -121,7 +122,7 @@ function SegmentedCTAs() {
   const hrefs = ['/membros', '/parceiros', '/palestrar']
   return (
     <section className="py-16 md:py-24 bg-navy-mid">
-      <div className="max-w-6xl mx-auto px-5 md:px-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-14">
         <SectionTitle chip={s.chip} title={s.title} dark />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {s.cards.map((card, i) => (
@@ -138,17 +139,21 @@ function SocialProof() {
   const sp = t.home.socialProof
   return (
     <section className="py-16 md:py-24 bg-navy">
-      <div className="max-w-6xl mx-auto px-5 md:px-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
           <div><SectionTitle chip={sp.chip} title={sp.title} dark /></div>
           <FadeIn>
             <div className="grid grid-cols-2 gap-4">
               {sp.metrics.map((m, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:border-gold/30 hover:bg-white/[0.08] transition-all duration-300">
+                  <motion.div
+                    className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center"
+                    whileHover={{ scale: 1.04, borderColor: 'rgba(254,197,57,0.35)', backgroundColor: 'rgba(255,255,255,0.08)' }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <div className="font-display text-4xl text-gold mb-1"><CountUp value={m.value} /></div>
                     <div className="text-gray-400 text-sm font-sans-custom">{m.label}</div>
-                  </div>
+                  </motion.div>
                 </FadeIn>
               ))}
             </div>
@@ -174,7 +179,7 @@ function AboutSection() {
   const icons = [<IconBolt size={18} />, <IconHandshake size={18} />, <IconRocket size={18} />]
   return (
     <section className="py-16 md:py-24 bg-cream">
-      <div className="max-w-6xl mx-auto px-5 md:px-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <SectionTitle chip={a.chip} title={a.title} dark={false} />
@@ -205,13 +210,17 @@ function PublicProfiles() {
   const pp = t.home.profiles
   const hrefs = ['/membros', '/parceiros', '/palestrar']
   return (
-    <section className="py-16 md:py-24 bg-navy-mid">
-      <div className="max-w-6xl mx-auto px-5 md:px-10">
+    <section className="py-16 md:py-24 bg-navy">
+      <div className="max-w-7xl mx-auto px-6 md:px-14">
         <SectionTitle chip={pp.chip} title={pp.title} dark center />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {pp.cards.map((p, i) => (
             <FadeIn key={i} delay={i * 0.08} className="h-full">
-              <div className="h-full flex flex-col bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-gold/30 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer hover:scale-[1.02]">
+              <motion.div
+                className="h-full flex flex-col bg-white/5 border border-white/10 rounded-2xl p-8 cursor-pointer"
+                whileHover={{ scale: 1.03, borderColor: 'rgba(254,197,57,0.35)', backgroundColor: 'rgba(255,255,255,0.08)' }}
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              >
                 <span className="text-gold text-xs font-medium font-sans-custom uppercase tracking-widest mb-3">{p.audience}</span>
                 <h3 className="font-display text-xl text-white mb-5">{p.label}</h3>
                 <ul className="flex flex-col gap-2.5 mb-8 flex-1">
@@ -222,7 +231,7 @@ function PublicProfiles() {
                   ))}
                 </ul>
                 <Link to={hrefs[i]} className="px-5 py-2.5 bg-gold/15 border border-gold/30 text-gold text-sm font-medium font-sans-custom rounded-lg text-center hover:bg-gold/25 transition-colors duration-200">{p.cta}</Link>
-              </div>
+              </motion.div>
             </FadeIn>
           ))}
         </div>
@@ -236,7 +245,7 @@ function EmpreendeMaisSection() {
   const e = t.home.empreendaMais
   return (
     <section className="py-16 md:py-24 bg-navy overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5 md:px-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-14">
         <motion.div className="relative bg-navy-light border border-gold/20 rounded-3xl p-10 md:p-16 overflow-hidden" animate={{ borderColor: ['rgba(254,197,57,0.2)', 'rgba(254,197,57,0.5)', 'rgba(254,197,57,0.2)'] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}>
           <motion.div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl pointer-events-none" animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }} />
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -266,7 +275,7 @@ function EmpreendeMaisSection() {
 
 export default function Home() {
   return (
-    <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit">
+    <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit">
       <Navbar />
       <HeroSection />
       <NewsBanner />

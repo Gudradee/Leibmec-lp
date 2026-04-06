@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { pageTransition } from '../animations/variants.js'
 import { Navbar } from '../components/Navbar.jsx'
 import { Footer } from '../components/FooterNew.jsx'
 import { FadeIn } from '../components/FadeIn.jsx'
@@ -8,12 +9,6 @@ import { AreaCard } from '../components/AreaCard.jsx'
 import { PhotoPlaceholder } from '../components/PhotoPlaceholder.jsx'
 import { IconMegaphone, IconHandshake, IconUsers, IconWrench, IconBarChart, IconLaptop } from '../components/icons/index.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
-
-const pageVariants = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
-  exit: { opacity: 0, y: -16, transition: { duration: 0.3 } },
-}
 
 const areaIcons = [
   <IconMegaphone size={20} />,
@@ -29,7 +24,7 @@ export default function Membros() {
   const m = t.membros
 
   return (
-    <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit">
+    <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit">
       <Navbar />
 
       {/* Hero */}
@@ -37,7 +32,7 @@ export default function Membros() {
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 left-1/3 w-80 h-80 bg-gold/5 rounded-full blur-3xl" />
         </div>
-        <div className="relative max-w-6xl mx-auto px-5 md:px-10 w-full">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-14 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <FadeIn>
@@ -69,7 +64,7 @@ export default function Membros() {
 
       {/* Day-to-day */}
       <section className="py-16 md:py-24 bg-navy-mid">
-        <div className="max-w-6xl mx-auto px-5 md:px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn delay={0.1}>
               <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden">
@@ -93,7 +88,7 @@ export default function Membros() {
 
       {/* Areas */}
       <section className="py-16 md:py-24 bg-navy">
-        <div className="max-w-6xl mx-auto px-5 md:px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
           <SectionTitle chip={m.areas.chip} title={m.areas.title} dark />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
             {m.areas.items.map((area, i) => (
@@ -105,7 +100,7 @@ export default function Membros() {
 
       {/* Process */}
       <section className="py-16 md:py-24 bg-navy-mid">
-        <div className="max-w-6xl mx-auto px-5 md:px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <SectionTitle chip={m.process.chip} title={m.process.title} dark />

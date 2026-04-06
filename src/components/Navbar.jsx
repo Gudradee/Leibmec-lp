@@ -32,14 +32,14 @@ export function Navbar() {
         scrolled ? 'bg-navy/95 backdrop-blur-md border-b border-white/10 py-3' : 'py-5'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-5 md:px-10 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center" aria-label="LEIbmec — página inicial">
+      <div className="relative px-6 md:px-14 flex items-center justify-between">
+        {/* Logo — far left */}
+        <Link to="/" className="flex items-center shrink-0" aria-label="LEIbmec — página inicial">
           <Logo size={64} />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop nav — absolutely centered */}
+        <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -55,8 +55,8 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Actions */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Actions — far right */}
+        <div className="hidden md:flex items-center gap-4 shrink-0">
           <a
             href="https://www.instagram.com/leibmec/"
             target="_blank"
@@ -82,15 +82,14 @@ export function Navbar() {
 
           <Link
             to="/membros"
-            className="ml-1 px-5 py-2.5 bg-gold text-navy text-sm font-semibold font-sans-custom rounded-lg hover:bg-gold-muted transition-colors duration-200"
+            className="px-5 py-2.5 bg-gold text-navy text-sm font-semibold font-sans-custom rounded-lg hover:bg-gold-muted transition-colors duration-200"
           >
             {t.nav.cta}
           </Link>
 
-          {/* Language toggle */}
           <button
             onClick={toggleLang}
-            className="px-5 py-2.5 rounded-lg border border-white/20 text-gray-300 text-sm font-semibold font-sans-custom hover:border-gold/50 hover:text-gold transition-all duration-200 flex items-center gap-1.5"
+            className="px-4 py-2.5 rounded-lg border border-white/20 text-gray-300 text-sm font-semibold font-sans-custom hover:border-gold/50 hover:text-gold transition-all duration-200"
             aria-label="Toggle language"
           >
             {lang === 'pt' ? '🇬🇧 EN' : '🇧🇷 PT'}
@@ -121,7 +120,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-navy-mid border-t border-white/10 px-5 py-6 flex flex-col gap-5">
+        <div className="md:hidden bg-navy-mid border-t border-white/10 px-6 py-6 flex flex-col gap-5">
           {navLinks.map((link) => (
             <Link
               key={link.href}

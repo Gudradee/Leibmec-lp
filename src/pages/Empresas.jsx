@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { pageTransition } from '../animations/variants.js'
 import { Link } from 'react-router-dom'
 import { Navbar } from '../components/Navbar.jsx'
 import { Footer } from '../components/FooterNew.jsx'
@@ -8,12 +9,6 @@ import { StepItem } from '../components/StepItem.jsx'
 import { IconTarget, IconPin, IconWrench } from '../components/icons/index.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
 
-const pageVariants = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
-  exit: { opacity: 0, y: -16, transition: { duration: 0.3 } },
-}
-
 const vpIcons = [<IconTarget size={22} />, <IconPin size={22} />, <IconWrench size={22} />]
 
 export default function Empresas() {
@@ -21,7 +16,7 @@ export default function Empresas() {
   const e = t.empresas
 
   return (
-    <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit">
+    <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit">
       <Navbar />
 
       {/* Hero */}
@@ -29,7 +24,7 @@ export default function Empresas() {
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gold/5 rounded-full blur-3xl" />
         </div>
-        <div className="relative max-w-6xl mx-auto px-5 md:px-10 w-full">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-14 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <FadeIn>
@@ -61,16 +56,20 @@ export default function Empresas() {
 
       {/* Value props */}
       <section className="py-16 md:py-24 bg-navy-mid">
-        <div className="max-w-6xl mx-auto px-5 md:px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
           <SectionTitle chip={e.valueProps.chip} title={e.valueProps.title} dark />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {e.valueProps.items.map((vp, i) => (
               <FadeIn key={i} delay={i * 0.08} className="h-full">
-                <div className="h-full bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-gold/30 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer hover:scale-[1.02]">
+                <motion.div
+                  className="h-full bg-white/5 border border-white/10 rounded-2xl p-8 cursor-pointer"
+                  whileHover={{ scale: 1.03, borderColor: 'rgba(254,197,57,0.35)', backgroundColor: 'rgba(255,255,255,0.08)' }}
+                  transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                >
                   <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center mb-5 text-gold">{vpIcons[i]}</div>
                   <h3 className="font-display text-xl text-white mb-3">{vp.title}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed font-sans-custom">{vp.description}</p>
-                </div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
@@ -79,7 +78,7 @@ export default function Empresas() {
 
       {/* Members */}
       <section className="py-16 md:py-24 bg-navy">
-        <div className="max-w-6xl mx-auto px-5 md:px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn className="hidden lg:block">
               <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden">
@@ -103,7 +102,7 @@ export default function Empresas() {
 
       {/* How it works */}
       <section className="py-16 md:py-24 bg-navy-mid">
-        <div className="max-w-6xl mx-auto px-5 md:px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <SectionTitle chip={e.process.chip} title={e.process.title} dark />
