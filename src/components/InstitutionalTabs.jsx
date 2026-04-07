@@ -4,6 +4,7 @@ import { FadeIn } from './FadeIn.jsx'
 import { SectionTitle } from './SectionTitle.jsx'
 import { IconMegaphone, IconHandshake, IconUsers, IconWrench, IconBarChart, IconLaptop } from './icons/index.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
+import { GlowyWaves } from '../animations/glowy-waves.jsx'
 
 const areaIcons = [
   <IconMegaphone size={18} />,
@@ -33,21 +34,64 @@ function TabMissao({ data }) {
   )
 }
 
+function AreaCard({ area, icon, index }) {
+  return (
+    <motion.div
+      variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] } } }}
+      className="group h-48 cursor-pointer"
+      style={{ perspective: '1000px' }}
+    >
+      {/* Inner — rotates on hover */}
+      <div
+        className="relative w-full h-full transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(180deg)]"
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {/* ── Front face: icon + name ── */}
+        <div
+          className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center gap-4 p-6 border border-white/6"
+          style={{
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+            background: '#080720',
+          }}
+        >
+          <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-gold shrink-0"
+            style={{ background: 'rgba(254,197,57,0.12)' }}>
+            {/* Clone icon at larger size */}
+            <span className="scale-125">{icon}</span>
+          </div>
+          <h3 className="font-display text-white text-lg text-center leading-tight">{area.name}</h3>
+        </div>
+
+        {/* ── Back face: badge + description ── */}
+        <div
+          className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center gap-3 p-6 border border-gold/20"
+          style={{
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)',
+            background: '#0d0b2a',
+          }}
+        >
+          <span className="px-3 py-0.5 rounded-full text-gold text-[10px] font-semibold font-sans-custom uppercase tracking-widest border border-gold/25"
+            style={{ background: 'rgba(254,197,57,0.08)' }}>
+            {area.badge}
+          </span>
+          <p className="text-gray-300 text-sm font-sans-custom leading-relaxed text-center">
+            {area.description}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 function TabAreas({ areas }) {
   return (
     <motion.div key="areas" variants={contentVariants} initial="hidden" animate="visible" exit="exit">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 py-4">
         {areas.map((area, i) => (
-          <div key={area.name} className="flex flex-col gap-3 p-5 bg-white/5 border border-white/10 rounded-xl hover:border-gold/30 hover:bg-white/[0.08] transition-all duration-200">
-            <div className="flex items-center justify-between">
-              <div className="w-9 h-9 rounded-lg bg-gold/15 flex items-center justify-center text-gold shrink-0">{areaIcons[i]}</div>
-              <span className="px-2.5 py-0.5 rounded-full bg-navy text-gold text-[10px] font-medium font-sans-custom uppercase tracking-wide border border-gold/20">{area.badge}</span>
-            </div>
-            <div>
-              <h3 className="font-display text-white text-base mb-1">{area.name}</h3>
-              <p className="text-gray-400 text-sm font-sans-custom leading-relaxed">{area.description}</p>
-            </div>
-          </div>
+          <AreaCard key={area.name} area={area} icon={areaIcons[i]} index={i} />
         ))}
       </div>
     </motion.div>
@@ -103,8 +147,14 @@ export function InstitutionalTabs() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-navy-mid">
-      <div className="max-w-7xl mx-auto px-6 md:px-14">
+    <section className="relative py-16 md:py-24 bg-navy-mid overflow-hidden">
+      {/* Glowy waves — gold sine waves with mouse influence */}
+      <GlowyWaves />
+
+      {/* Legibility overlay */}
+      <div className="absolute inset-0 bg-navy-mid/50 pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-14">
         <SectionTitle chip={tb.chip} title={tb.title} dark center />
         <div className="overflow-x-auto -mx-5 px-5 md:mx-0 md:px-0">
           <div className="flex gap-1 min-w-max md:min-w-0 md:justify-center border-b border-white/10">

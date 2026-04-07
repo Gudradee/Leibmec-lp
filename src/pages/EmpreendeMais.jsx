@@ -85,6 +85,34 @@ export default function EmpreendaMaisPage() {
               </FadeIn>
             </div>
 
+            {/* 3D platform screenshot — right column, desktop only */}
+            <FadeIn delay={0.15} className="hidden lg:block">
+              {/* bottom fade so image dissolves into the section */}
+              <div style={{
+                maskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
+              }}>
+                {/* perspective + right fade */}
+                <div style={{
+                  perspective: '1200px',
+                  maskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
+                }}>
+                  {/* rotateX tilt */}
+                  <div style={{ transform: 'rotateX(18deg)' }}>
+                    {/* horizontal skew — the 3-D floating-screen look */}
+                    <div className="skew-x-[.36rad]">
+                      <img
+                        src="/empreenda-platform.jpg"
+                        alt="Plataforma Empreenda+"
+                        className="w-full rounded-2xl border border-white/10 shadow-2xl"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
           </div>
         </div>
       </section>

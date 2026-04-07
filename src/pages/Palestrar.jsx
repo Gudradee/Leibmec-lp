@@ -8,6 +8,7 @@ import { SectionTitle } from '../components/SectionTitle.jsx'
 import { StepItem } from '../components/StepItem.jsx'
 import { IconTrophy, IconBroadcast, IconBolt, IconLink } from '../components/icons/index.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
+import { FloatingParticles } from '../animations/floating-particles.jsx'
 
 const whyIcons = [<IconTrophy size={22} />, <IconBroadcast size={22} />, <IconBolt size={22} />, <IconLink size={22} />]
 
@@ -16,11 +17,14 @@ export default function Palestrar() {
   const p = t.palestrar
 
   return (
-    <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit">
+    <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="relative">
+      {/* Fixed floating-particle background for the entire page */}
+      <FloatingParticles />
+
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center pt-28 pb-16 md:pb-20 bg-navy overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center pt-28 pb-16 md:pb-20 overflow-hidden" style={{ background: 'rgba(15,14,54,0.62)' }}>
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-1/3 w-80 h-80 bg-gold/5 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 left-1/4 w-60 h-60 bg-navy-light/50 rounded-full blur-3xl" />
@@ -56,7 +60,7 @@ export default function Palestrar() {
       </section>
 
       {/* Why */}
-      <section className="py-16 md:py-24 bg-navy-mid">
+      <section className="py-16 md:py-24" style={{ background: 'rgba(26,24,80,0.68)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <SectionTitle chip={p.why.chip} title={p.why.title} dark />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -78,7 +82,7 @@ export default function Palestrar() {
       </section>
 
       {/* Past events */}
-      <section className="py-16 md:py-24 bg-navy">
+      <section className="py-16 md:py-24" style={{ background: 'rgba(15,14,54,0.62)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <SectionTitle chip={p.events.chip} title={p.events.title} dark />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -94,7 +98,7 @@ export default function Palestrar() {
       </section>
 
       {/* How it works */}
-      <section className="py-16 md:py-24 bg-navy-mid">
+      <section className="py-16 md:py-24" style={{ background: 'rgba(26,24,80,0.68)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
@@ -115,7 +119,7 @@ export default function Palestrar() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-navy">
+      <section className="py-16 md:py-24" style={{ background: 'rgba(15,14,54,0.62)' }}>
         <div className="max-w-2xl mx-auto px-5 md:px-10 text-center">
           <FadeIn><h2 className="font-display text-4xl md:text-5xl text-white mb-4">{p.cta.title}</h2></FadeIn>
           <FadeIn delay={0.07}><p className="text-gray-400 font-sans-custom mb-8">{p.cta.description}</p></FadeIn>

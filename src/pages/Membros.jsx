@@ -6,9 +6,9 @@ import { FadeIn } from '../components/FadeIn.jsx'
 import { SectionTitle } from '../components/SectionTitle.jsx'
 import { StepItem } from '../components/StepItem.jsx'
 import { AreaCard } from '../components/AreaCard.jsx'
-import { PhotoPlaceholder } from '../components/PhotoPlaceholder.jsx'
 import { IconMegaphone, IconHandshake, IconUsers, IconWrench, IconBarChart, IconLaptop } from '../components/icons/index.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
+import { MinimalParticles } from '../animations/minimal-particles.jsx'
 
 const areaIcons = [
   <IconMegaphone size={20} />,
@@ -24,11 +24,14 @@ export default function Membros() {
   const m = t.membros
 
   return (
-    <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit">
+    <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="relative">
+      {/* Fixed particle + accent-grid background for the entire page */}
+      <MinimalParticles />
+
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center pt-28 pb-16 md:pb-20 bg-navy overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center pt-28 pb-16 md:pb-20 overflow-hidden" style={{ background: 'rgba(15,14,54,0.65)' }}>
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 left-1/3 w-80 h-80 bg-gold/5 rounded-full blur-3xl" />
         </div>
@@ -63,7 +66,7 @@ export default function Membros() {
       </section>
 
       {/* Day-to-day */}
-      <section className="py-16 md:py-24 bg-navy-mid">
+      <section className="py-16 md:py-24" style={{ background: 'rgba(26,24,80,0.68)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn delay={0.1}>
@@ -87,7 +90,7 @@ export default function Membros() {
       </section>
 
       {/* Areas */}
-      <section className="py-16 md:py-24 bg-navy">
+      <section className="py-16 md:py-24" style={{ background: 'rgba(15,14,54,0.65)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <SectionTitle chip={m.areas.chip} title={m.areas.title} dark />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
@@ -99,7 +102,7 @@ export default function Membros() {
       </section>
 
       {/* Process */}
-      <section className="py-16 md:py-24 bg-navy-mid">
+      <section className="py-16 md:py-24" style={{ background: 'rgba(26,24,80,0.68)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
@@ -120,7 +123,7 @@ export default function Membros() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-navy">
+      <section className="py-16 md:py-24" style={{ background: 'rgba(15,14,54,0.65)' }}>
         <div className="max-w-2xl mx-auto px-5 md:px-10 text-center">
           <FadeIn>
             <span className="inline-block px-4 py-1.5 rounded-full bg-gold/15 text-gold text-sm font-medium font-sans-custom border border-gold/25 mb-6">{m.cta.badge}</span>
