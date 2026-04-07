@@ -8,8 +8,51 @@ import { SectionTitle } from '../components/SectionTitle.jsx'
 import { StepItem } from '../components/StepItem.jsx'
 import { IconTarget, IconPin, IconWrench } from '../components/icons/index.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
+import { GridPattern } from '../components/ui/grid-pattern.jsx'
 
 const vpIcons = [<IconTarget size={22} />, <IconPin size={22} />, <IconWrench size={22} />]
+
+// Scattered highlighted squares for visual interest
+const gridSquares = [
+  [1,1],[4,2],[8,1],[12,3],[16,1],[19,2],
+  [2,5],[6,4],[10,6],[14,5],[18,4],
+  [3,9],[7,8],[11,9],[15,8],[20,9],
+  [1,13],[5,12],[9,14],[13,12],[17,13],
+  [4,17],[8,16],[12,18],[16,17],[19,16],
+  [2,21],[6,20],[10,22],[14,21],[18,20],
+]
+
+function SectionGrid() {
+  return (
+    // Outer div: extends beyond section top/bottom so skew corners don't show gaps
+    <div
+      className="absolute inset-x-0 pointer-events-none"
+      style={{ top: '-30%', height: '160%' }}
+    >
+      {/* Inner div: applies the 3D skew + radial gradient mask */}
+      <div
+        style={{
+          position: 'relative',
+          height: '100%',
+          transform: 'skewY(12deg)',
+          maskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, white 30%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, white 30%, transparent 100%)',
+        }}
+      >
+        <GridPattern
+          width={44}
+          height={44}
+          squares={gridSquares}
+          strokeDasharray="1 2"
+          style={{
+            fill: 'rgba(254,197,57,0.12)',
+            stroke: 'rgba(254,197,57,0.22)',
+          }}
+        />
+      </div>
+    </div>
+  )
+}
 
 export default function Empresas() {
   const { t } = useLanguage()
@@ -17,14 +60,16 @@ export default function Empresas() {
 
   return (
     <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit">
+
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center pt-28 pb-16 md:pb-20 bg-navy overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center pt-28 pb-16 md:pb-20 overflow-hidden bg-navy">
+        <SectionGrid />
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gold/5 rounded-full blur-3xl" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 md:px-14 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-14 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <FadeIn>
@@ -55,8 +100,9 @@ export default function Empresas() {
       </section>
 
       {/* Value props */}
-      <section className="py-16 md:py-24 bg-navy-mid">
-        <div className="max-w-7xl mx-auto px-6 md:px-14">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-navy-mid">
+        <SectionGrid />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-14">
           <SectionTitle chip={e.valueProps.chip} title={e.valueProps.title} dark />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {e.valueProps.items.map((vp, i) => (
@@ -77,8 +123,9 @@ export default function Empresas() {
       </section>
 
       {/* Members */}
-      <section className="py-16 md:py-24 bg-navy">
-        <div className="max-w-7xl mx-auto px-6 md:px-14">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-navy">
+        <SectionGrid />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn className="hidden lg:block">
               <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden">
@@ -101,8 +148,9 @@ export default function Empresas() {
       </section>
 
       {/* How it works */}
-      <section className="py-16 md:py-24 bg-navy-mid">
-        <div className="max-w-7xl mx-auto px-6 md:px-14">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-navy-mid">
+        <SectionGrid />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <SectionTitle chip={e.process.chip} title={e.process.title} dark />
@@ -122,8 +170,9 @@ export default function Empresas() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-navy">
-        <div className="max-w-2xl mx-auto px-5 md:px-10 text-center">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-navy">
+        <SectionGrid />
+        <div className="relative z-10 max-w-2xl mx-auto px-5 md:px-10 text-center">
           <FadeIn><h2 className="font-display text-4xl md:text-5xl text-white mb-4">{e.cta.title}</h2></FadeIn>
           <FadeIn delay={0.07}><p className="text-gray-400 font-sans-custom mb-8">{e.cta.description}</p></FadeIn>
           <FadeIn delay={0.14}>

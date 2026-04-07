@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from '../components/Navbar.jsx'
@@ -10,6 +10,8 @@ import { InstitutionalTabs } from '../components/InstitutionalTabs.jsx'
 import { IconBolt, IconHandshake, IconRocket, IconGraduation, IconBuilding, IconMic } from '../components/icons/index.jsx'
 import { useLanguage } from '../context/LanguageContext.jsx'
 import { pageTransition } from '../animations/variants.js'
+import { ModernBackgroundPaths } from '../animations/modern-background-paths.jsx'
+import { DigitalLoomBackground } from '../animations/digital-loom-background.jsx'
 
 function CountUp({ value }) {
   const ref = useRef(null)
@@ -40,23 +42,43 @@ function CountUp({ value }) {
 function HeroSection() {
   const { t } = useLanguage()
   const h = t.home.hero
+
+  // ── Scroll-driven parallax ──────────────────────────────────────────────
+  const heroRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
+
+  // Three depth layers — bg moves least, image moves most
+  const bgY    = useTransform(scrollYProgress, [0, 1], [0, -35])
+  const textY  = useTransform(scrollYProgress, [0, 1], [0, -75])
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -130])
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.07])
+  // ────────────────────────────────────────────────────────────────────────
+
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-16 md:pb-20 overflow-hidden bg-navy">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex items-center pt-24 pb-16 md:pb-20 overflow-hidden bg-navy">
+      {/* Cycling SVG background patterns — neural / flow / geometric / spiral */}
+      <ModernBackgroundPaths />
+
+      {/* Depth layer 1 — slowest (blobs) */}
+      <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl" animate={{ y: [0, -40, 0], scale: [1, 1.1, 1] }} transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }} />
         <motion.div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-navy-light/60 rounded-full blur-3xl" animate={{ y: [0, 30, 0], scale: [1, 1.08, 1] }} transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 2 }} />
         <motion.div className="absolute top-1/2 left-2/3 w-56 h-56 bg-gold/[0.03] rounded-full blur-3xl" animate={{ x: [0, 24, 0], y: [0, -24, 0] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }} />
-      </div>
+      </motion.div>
+
       <motion.span
         className="absolute bottom-0 right-0 font-display leading-none select-none pointer-events-none whitespace-nowrap"
-        style={{ fontSize: 'clamp(160px,22vw,340px)', color: 'rgba(255,255,255,0.04)' }}
-        animate={{ y: [0, -18, 0], opacity: [0.04, 0.07, 0.04] }}
+        style={{ fontSize: 'clamp(160px,22vw,340px)', color: 'rgba(255,255,255,0.04)', y: bgY }}
+        animate={{ opacity: [0.04, 0.07, 0.04] }}
         transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
         aria-hidden="true"
       >LEI</motion.span>
+
       <div className="relative max-w-7xl mx-auto px-6 md:px-14 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
+
+          {/* Depth layer 2 — text column */}
+          <motion.div style={{ y: textY }}>
             <FadeIn>
               <motion.span className="inline-block px-4 py-1.5 rounded-full bg-gold/15 text-gold text-sm font-medium font-sans-custom border border-gold/25 mb-6" animate={{ borderColor: ['rgba(254,197,57,0.25)', 'rgba(254,197,57,0.65)', 'rgba(254,197,57,0.25)'] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}>
                 {h.badge}
@@ -83,12 +105,17 @@ function HeroSection() {
                 <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-gold" />{h.stat2}</span>
               </div>
             </FadeIn>
-          </div>
+          </motion.div>
+
+          {/* Depth layer 3 — image column (moves fastest = deepest parallax) */}
           <FadeIn delay={0.1} className="hidden lg:block">
-            <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden">
-              <img src="/equipe-lei.jpeg" alt="Equipe LEIbmec" className="w-full h-full object-cover" />
-            </div>
+            <motion.div style={{ y: imageY, scale: imgScale }}>
+              <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden">
+                <img src="/equipe-lei.jpeg" alt="Equipe LEIbmec" className="w-full h-full object-cover" />
+              </div>
+            </motion.div>
           </FadeIn>
+
         </div>
       </div>
     </section>
@@ -120,9 +147,27 @@ function SegmentedCTAs() {
   const s = t.home.segmented
   const icons = [<IconGraduation size={22} />, <IconBuilding size={22} />, <IconMic size={22} />]
   const hrefs = ['/membros', '/parceiros', '/palestrar']
+  const [mouse, setMouse] = useState({ x: 0, y: 0, visible: false })
+
   return (
-    <section className="py-16 md:py-24 bg-navy-mid">
-      <div className="max-w-7xl mx-auto px-6 md:px-14">
+    <section
+      className="relative py-16 md:py-24 bg-navy-mid overflow-hidden"
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect()
+        setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true })
+      }}
+      onMouseLeave={() => setMouse(m => ({ ...m, visible: false }))}
+    >
+      {/* Mouse spotlight */}
+      <div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-500"
+        style={{
+          opacity: mouse.visible ? 1 : 0,
+          background: `radial-gradient(650px at ${mouse.x}px ${mouse.y}px, rgba(254,197,57,0.08), transparent 70%)`,
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-14">
         <SectionTitle chip={s.chip} title={s.title} dark />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {s.cards.map((card, i) => (
@@ -137,9 +182,33 @@ function SegmentedCTAs() {
 function SocialProof() {
   const { t } = useLanguage()
   const sp = t.home.socialProof
+  const [mouse, setMouse] = useState({ x: 0, y: 0, visible: false })
+
   return (
-    <section className="py-16 md:py-24 bg-navy">
-      <div className="max-w-7xl mx-auto px-6 md:px-14">
+    <section
+      className="relative py-16 md:py-24 bg-navy overflow-hidden"
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect()
+        setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true })
+      }}
+      onMouseLeave={() => setMouse(m => ({ ...m, visible: false }))}
+    >
+      {/* Digital loom — gold threads on navy */}
+      <DigitalLoomBackground backgroundColor="#0f0e36" />
+
+      {/* Legibility overlay */}
+      <div className="absolute inset-0 bg-navy/50 pointer-events-none" />
+
+      {/* Mouse spotlight */}
+      <div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-500"
+        style={{
+          opacity: mouse.visible ? 1 : 0,
+          background: `radial-gradient(600px at ${mouse.x}px ${mouse.y}px, rgba(254,197,57,0.1), transparent 70%)`,
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
           <div><SectionTitle chip={sp.chip} title={sp.title} dark /></div>
           <FadeIn>
@@ -209,9 +278,27 @@ function PublicProfiles() {
   const { t } = useLanguage()
   const pp = t.home.profiles
   const hrefs = ['/membros', '/parceiros', '/palestrar']
+  const [mouse, setMouse] = useState({ x: 0, y: 0, visible: false })
+
   return (
-    <section className="py-16 md:py-24 bg-navy">
-      <div className="max-w-7xl mx-auto px-6 md:px-14">
+    <section
+      className="relative py-16 md:py-24 bg-navy overflow-hidden"
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect()
+        setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true })
+      }}
+      onMouseLeave={() => setMouse(m => ({ ...m, visible: false }))}
+    >
+      {/* Mouse spotlight */}
+      <div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-500"
+        style={{
+          opacity: mouse.visible ? 1 : 0,
+          background: `radial-gradient(650px at ${mouse.x}px ${mouse.y}px, rgba(254,197,57,0.07), transparent 70%)`,
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-14">
         <SectionTitle chip={pp.chip} title={pp.title} dark center />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {pp.cards.map((p, i) => (
